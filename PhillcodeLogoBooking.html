@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phillcode - Logo, Booking & More Services</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #4fc3f7;
+            --dark: #0a2342;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(74, 111, 165, 0.9), rgba(22, 96, 136, 0.9)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-btns .btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .service-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .service-card-content {
+            padding: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+
+        .feature-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .feature-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .feature-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .feature-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .feature-content {
+                flex-direction: column;
+            }
+
+            .feature-text, .feature-img {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+            }
+
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<!-- Start of Navigation Section -->
+<section id="navigation-section">
+  <style>
+    /* Scoped navigation styles */
+    #navigation-section {
+      margin: 0;
+      padding: 0;
+    }
+    
+    #navigation-section nav {
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #333;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    #navigation-section .logo {
+      color: #333;
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    
+    #navigation-section .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    #navigation-section .nav-links a {
+      color: #333;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    #navigation-section .nav-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    #navigation-section .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+    
+    #navigation-section .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    #navigation-section .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+    
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      #navigation-section .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 2rem;
+        gap: 1.5rem;
+        display: none;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      
+      #navigation-section .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+      }
+      
+      #navigation-section .nav-links a {
+        color: #333;
+        padding: 0.5rem 1rem;
+        width: 100%;
+      }
+      
+      #navigation-section .mobile-menu-btn {
+        display: block;
+      }
+    }
+  </style>
+
+  <nav>
+    <a href="#" class="logo">PHILLCODE</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Our work</a>
+      <a href="aboutus.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <script>
+    // Scoped navigation script
+    (function() {
+      const navSection = document.querySelector('#navigation-section');
+      if (navSection) {
+        const mobileMenuBtn = navSection.querySelector('.mobile-menu-btn');
+        const navLinks = navSection.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          this.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
+        
+        // Close menu when clicking outside or on a link
+        document.addEventListener('click', function(event) {
+          if (!navSection.contains(event.target) && window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    })();
+  </script>
+</section>
+<!-- End of Navigation Section -->
+<section id="whatsapp-float">
+  <!-- WhatsApp Icon Button -->
+  <a href="https://wa.me/254790617211" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <style>
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background: #128C7E;
+      transform: scale(1.05);
+    }
+
+    .whatsapp-float i {
+      margin-top: 2px; /* Minor icon alignment adjustment */
+    }
+  </style>
+
+  <!-- Font Awesome for the WhatsApp icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Logo, Booking & More</h1>
+            <p>Where functionality meets creativity. At Phillcode, we offer a comprehensive set of additional tools and design services to help your business grow, connect, and convert more effectively online.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn">Explore Services</a>
+                <a href="contact.html" class="btn btn-outline">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title text-center">Our Services</h2>
+            <p class="text-center">Whether you're launching a new brand or expanding an existing one, our extras are tailored to make your online experience complete.</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">✨</div>
+                        <h3>Custom Logo Design</h3>
+                        <p>Your brand's identity starts here. We craft unique logos from scratch based on your brand story.</p>
+                        <ul class="feature-list">
+                            <li>3-5 Initial Logo Concepts</li>
+                            <li>Unlimited Revisions</li>
+                            <li>Multiple File Formats</li>
+                            <li>Color Variants</li>
+                            <li>Typography Guide</li>
+                        </ul>
+                        <a href="contact.html" class="btn">Get Your Logo</a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">📆</div>
+                        <h3>Booking Forms</h3>
+                        <p>Make it easy to get appointments or orders with our integrated booking solutions.</p>
+                        <ul class="feature-list">
+                            <li>Date and Time Pickers</li>
+                            <li>Custom Fields</li>
+                            <li>Email Notifications</li>
+                            <li>Calendar Integration</li>
+                            <li>SMS Reminders</li>
+                        </ul>
+                        <a href="contact.html" class="btn">Add Booking</a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">🖼️</div>
+                        <h3>Product Galleries</h3>
+                        <p>Showcase what you offer with beautiful, responsive image and product galleries.</p>
+                        <ul class="feature-list">
+                            <li>Grid & Carousel Layouts</li>
+                            <li>Zoom & Lightbox Effects</li>
+                            <li>Categories & Tags</li>
+                            <li>Custom CTAs</li>
+                            <li>Mobile Optimized</li>
+                        </ul>
+                        <a href="contact.html" class="btn">Build Gallery</a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-icon">📨</div>
+                        <h3>Newsletter Systems</h3>
+                        <p>Build an email list that grows with you and keep customers engaged.</p>
+                        <ul class="feature-list">
+                            <li>Email Collection Forms</li>
+                            <li>GDPR Compliance</li>
+                            <li>Platform Integration</li>
+                            <li>Double Opt-In</li>
+                            <li>Automated Emails</li>
+                        </ul>
+                        <a href="contact.html" class="btn">Start Collecting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title text-center">Key Features</h2>
+            <p class="text-center">All our services come with these powerful features built-in.</p>
+            
+            <div class="feature-tabs">
+                <button class="tab-btn active" data-tab="customization">Customization</button>
+                <button class="tab-btn" data-tab="integration">Integration</button>
+                <button class="tab-btn" data-tab="privacy">Privacy</button>
+                <button class="tab-btn" data-tab="marketing">Marketing</button>
+            </div>
+            
+            <div class="tab-content active" id="customization">
+                <div class="feature-content">
+                    <div class="feature-text">
+                        <h3>Customization & Scalability</h3>
+                        <p>All the extras we provide aren't "one size fits all." They're fully customizable based on your business goals, user behavior, and branding.</p>
+                        <p>Whether you're just starting or scaling to a bigger audience, our tools are built to grow with your company.</p>
+                        <ul class="feature-list">
+                            <li>Add Payment Gateways (PayPal, Mpesa, Stripe)</li>
+                            <li>CRM Integration (HubSpot, Zoho, etc.)</li>
+                            <li>Real-time Availability Check</li>
+                            <li>Analytics Tracking</li>
+                            <li>User Accounts System</li>
+                        </ul>
+                    </div>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Customization">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="integration">
+                <div class="feature-content">
+                    <div class="feature-text">
+                        <h3>Seamless Integration</h3>
+                        <p>Don't worry if you already have a website—we can integrate these features without disrupting your current design or functionality.</p>
+                        <p>We use clean HTML, CSS, JavaScript, and WordPress (if applicable) to make everything fit smoothly.</p>
+                        <ul class="feature-list">
+                            <li>Works with GitHub Pages, GoDaddy, WordPress</li>
+                            <li>Compatible with Wix, Shopify, and custom hosting</li>
+                            <li>No disruption to existing site</li>
+                            <li>Clean, maintainable code</li>
+                            <li>Thorough documentation</li>
+                        </ul>
+                    </div>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Integration">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="privacy">
+                <div class="feature-content">
+                    <div class="feature-text">
+                        <h3>Data Privacy & Mobile First</h3>
+                        <p>All forms and signups are created with data security in mind. We don't collect or store your customer data unless necessary.</p>
+                        <p>Every feature is built to look and work perfectly on mobile — from the booking calendar to the newsletter form.</p>
+                        <ul class="feature-list">
+                            <li>GDPR and local data policy compliance</li>
+                            <li>Secure data handling practices</li>
+                            <li>Mobile-optimized interfaces</li>
+                            <li>Fast loading on all devices</li>
+                            <li>Accessibility considerations</li>
+                        </ul>
+                    </div>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Privacy">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="marketing">
+                <div class="feature-content">
+                    <div class="feature-text">
+                        <h3>Marketing Optimization</h3>
+                        <p>Beyond design and functionality, our extras are crafted to boost your conversions and engagement.</p>
+                        <p>We use data-backed strategies to position your CTAs effectively and capture more leads.</p>
+                        <ul class="feature-list">
+                            <li>Conversion-optimized designs</li>
+                            <li>A/B testing capabilities</li>
+                            <li>Improved user flow</li>
+                            <li>Reduced bounce rate</li>
+                            <li>Increased lead capture</li>
+                        </ul>
+                    </div>
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Marketing">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Want us to design your logo, add a custom booking form, or build a slick gallery? Phillcode is ready to elevate your digital presence.</p>
+            <a href="contact.html" class="btn">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Phillcode</h3>
+                    <p>Where functionality meets creativity. We help businesses grow with custom digital solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>LI</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="contact.html">Logo Design</a></li>
+                        <li><a href="contact.html">Booking Forms</a></li>
+                        <li><a href="contact.html">Product Galleries</a></li>
+                        <li><a href="contact.html">Newsletter Systems</a></li>
+                        <li><a href="contact.html">Custom Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                           <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:philemonmutisya@gmail.com">Email us</a></li>
+                        <li><a href="tel:+254790617211">cal us </a></li>
+                        <li><a href="contact.html">Request a Quote</a></li>
+                        <li><a href="contact.html">Schedule Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Phillcode. All rights reserved. <span>"Great websites are built on great ideas and even greater tools. Add the missing piece today with Phillcode Extras."</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+ 
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card, .section-title, .feature-content');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on page load
+        animateOnScroll();
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
