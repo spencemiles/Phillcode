@@ -31,6 +31,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            font-size: small;
         }
 
         body {
@@ -40,6 +41,165 @@
             background-color: var(--lighter);
             position: relative;
             overflow-x: hidden;
+            padding-top: 80px; /* Added for fixed navbar */
+        }
+
+        /* ===== FIXED NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--lighter);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 20px 5%;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 15px 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--primary-light);
+        }
+
+        .logo span {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            text-decoration: none;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Button */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar {
+                padding: 15px 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--lighter);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                gap: 20px;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+            
+            .nav-link::after {
+                width: calc(100% - 40px);
+                left: 20px;
+            }
         }
 
         .container {
@@ -48,11 +208,16 @@
             padding: 0 2rem;
         }
 
-
         /* Main Content */
         section {
             padding: 6rem 0;
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
         }
 
         .section-title {
@@ -67,11 +232,24 @@
             font-weight: 700;
         }
 
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
         .section-title p {
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
         }
 
         .section-title .divider {
@@ -93,6 +271,14 @@
             gap: 2.5rem;
         }
 
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
+
         .feature-card {
             background: var(--lighter);
             padding: 2.5rem;
@@ -103,6 +289,12 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .feature-card {
+                padding: 2rem;
+            }
         }
 
         .feature-card::before {
@@ -119,6 +311,12 @@
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .feature-card:hover {
+                transform: translateY(-5px);
+            }
         }
 
         .feature-icon {
@@ -164,10 +362,23 @@
             flex-wrap: wrap;
         }
 
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                gap: 3rem;
+            }
+        }
+
         .about-image {
             flex: 1;
             min-width: 300px;
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .about-image {
+                min-width: 100%;
+            }
         }
 
         .about-image img {
@@ -188,9 +399,22 @@
             z-index: -1;
         }
 
+        @media (max-width: 768px) {
+            .about-image::before {
+                display: none;
+            }
+        }
+
         .about-text {
             flex: 1;
             min-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .about-text {
+                min-width: 100%;
+                padding: 0 1rem;
+            }
         }
 
         .about-text h2 {
@@ -198,6 +422,12 @@
             color: var(--darker);
             margin-bottom: 1.5rem;
             line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            .about-text h2 {
+                font-size: 2rem;
+            }
         }
 
         .about-text p {
@@ -233,6 +463,14 @@
             gap: 2.5rem;
         }
 
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
+
         .service-card {
             background: var(--lighter);
             padding: 2.5rem;
@@ -242,6 +480,12 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                padding: 2rem;
+            }
         }
 
         .service-card::before {
@@ -258,6 +502,12 @@
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .service-card:hover {
+                transform: translateY(-5px);
+            }
         }
 
         .service-icon {
@@ -300,105 +550,6 @@
             gap: 1rem;
         }
 
-        /* Portfolio Section */
-        .portfolio {
-            background-color: var(--lighter);
-        }
-
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            background: transparent;
-            border: 1px solid var(--gray);
-            color: var(--gray);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary);
-            color: var(--light);
-            border-color: var(--primary);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-item {
-            position: relative;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .portfolio-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-item:hover .portfolio-img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-overlay h3 {
-            color: var(--light);
-            margin-bottom: 1rem;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-overlay p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            transform: translateY(20px);
-            transition: all 0.3s ease 0.1s;
-        }
-
-        .portfolio-overlay .btn {
-            transform: translateY(20px);
-            transition: all 0.3s ease 0.2s;
-        }
-
-        .portfolio-item:hover .portfolio-overlay h3,
-        .portfolio-item:hover .portfolio-overlay p,
-        .portfolio-item:hover .portfolio-overlay .btn {
-            transform: translateY(0);
-        }
-
         /* Testimonials Section */
         .testimonials {
             background-color: #f8fafc;
@@ -410,6 +561,14 @@
             gap: 2.5rem;
         }
 
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
+
         .testimonial-card {
             background: var(--lighter);
             padding: 2.5rem;
@@ -417,6 +576,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 2rem;
+            }
         }
 
         .testimonial-card::before {
@@ -434,6 +599,12 @@
         .testimonial-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card:hover {
+                transform: translateY(-5px);
+            }
         }
 
         .testimonial-content {
@@ -497,6 +668,14 @@
             flex-wrap: wrap;
         }
 
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
+
         .contact-form {
             flex: 1;
             min-width: 350px;
@@ -505,6 +684,13 @@
             padding: 2.5rem;
             border-radius: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                min-width: 100%;
+                padding: 2rem;
+            }
         }
 
         .form-group {
@@ -549,6 +735,12 @@
             min-width: 350px;
         }
 
+        @media (max-width: 768px) {
+            .contact-info {
+                min-width: 100%;
+            }
+        }
+
         .info-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -556,6 +748,12 @@
             border-radius: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-card {
+                padding: 2rem;
+            }
         }
 
         .info-item {
@@ -682,6 +880,14 @@
             flex-wrap: wrap;
             gap: 3rem;
             margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                gap: 2rem;
+                flex-direction: column;
+                padding: 0 1rem;
+            }
         }
 
         .footer-column {
@@ -818,6 +1024,43 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--gray);
             font-size: 0.9rem;
+            padding: 0 1rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+                bottom: 20px;
+                right: 20px;
+            }
         }
 
         /* Animations */
@@ -848,178 +1091,60 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 1000px;
-            }
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-image {
-                margin-bottom: 3rem;
-            }
-
-            .about-image::before {
-                display: none;
-            }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(67, 97, 238, 0.3);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .header-subtext {
-                font-size: 1.1rem;
-            }
-
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .nav {
-                gap: 1rem;
-            }
-
-            .contact-wrapper {
-                flex-direction: column;
-            }
-
-            .contact-form,
-            .contact-info {
-                min-width: 100%;
-            }
+        .btn i {
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Testimonial slider
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        let currentTestimonial = 0;
-        let testimonialInterval;
-
-        function showTestimonial(n) {
-            testimonialSlides.forEach(slide => slide.classList.remove('active'));
-            testimonialDots.forEach(dot => dot.classList.remove('active'));
+    <!-- Fixed Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-code"></i>
+                PHILL<span>CODE</span>
+            </a>
             
-            currentTestimonial = (n + testimonialSlides.length) % testimonialSlides.length;
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             
-            testimonialSlides[currentTestimonial].classList.add('active');
-            testimonialDots[currentTestimonial].classList.add('active');
-        }
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        function nextTestimonial() {
-            showTestimonial(currentTestimonial + 1);
-        }
-
-        function startTestimonialSlider() {
-            testimonialInterval = setInterval(nextTestimonial, 5000);
-        }
-
-        testimonialDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const slideIndex = parseInt(this.getAttribute('data-slide'));
-                showTestimonial(slideIndex);
-                clearInterval(testimonialInterval);
-                startTestimonialSlider();
-            });
-        });
-
-        startTestimonialSlider();
-    });
-</script>
-
-<section id="whatsapp-float">
-  <!-- WhatsApp Icon Button -->
-  <a href="https://wa.me/254790617211" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <style>
-    /* WhatsApp Floating Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .whatsapp-float:hover {
-      background: #128C7E;
-      transform: scale(1.05);
-    }
-
-    .whatsapp-float i {
-      margin-top: 2px; /* Minor icon alignment adjustment */
-    }
-  </style>
-
-  <!-- Font Awesome for the WhatsApp icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</section>
-
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254790617211" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Features Section -->
     <section class="features">
@@ -1077,7 +1202,7 @@
                         <li><i class="fas fa-check-circle"></i> Ongoing support and maintenance</li>
                     </ul>
 
-                    <a href="contact.html" class="btn btn-primary">
+                    <a href="contact.html" class="btn">
                         <i class="fas fa-handshake"></i> Work With Us
                     </a>
                 </div>
@@ -1101,7 +1226,9 @@
                     </div>
                     <h3>Web Development</h3>
                     <p>Custom websites built with the latest technologies to ensure performance, security, and scalability.</p>
-
+                    <a href="services.html" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -1110,7 +1237,9 @@
                     </div>
                     <h3>Mobile Apps</h3>
                     <p>Native and cross-platform mobile applications for iOS and Android that engage your users.</p>
-                    
+                    <a href="services.html" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -1119,7 +1248,9 @@
                     </div>
                     <h3>eCommerce</h3>
                     <p>Powerful online stores with secure payment gateways, inventory management, and marketing tools.</p>
-                    
+                    <a href="services.html" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -1128,7 +1259,9 @@
                     </div>
                     <h3>SEO Optimization</h3>
                     <p>Improve your search rankings and drive more organic traffic to your website with our SEO services.</p>
-                   
+                    <a href="services.html" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -1137,7 +1270,9 @@
                     </div>
                     <h3>Web Hosting</h3>
                     <p>Reliable, high-performance hosting solutions with 99.9% uptime and expert support.</p>
-                    
+                    <a href="services.html" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="service-card">
@@ -1146,88 +1281,86 @@
                     </div>
                     <h3>UI/UX Design</h3>
                     <p>Beautiful, intuitive interfaces that enhance user experience and drive conversions.</p>
-                   
+                    <a href="services.html" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-  
-
     <!-- Testimonials Section -->
-  <!-- Testimonials Section -->
-<section class="testimonials">
-    <div class="container">
-        <div class="section-title">
-            <h2>Client Testimonials</h2>
-            <p>See how we've turned ordinary PDF resumes into stunning, interactive online CVs</p>
-            <div class="divider"></div>
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>See how we've turned ordinary PDF resumes into stunning, interactive online CVs</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Turning my CV PDF into a live website was the best decision I ever made. I've received 3 job offers already—recruiters love the downloadable version and the contact form!
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Manager</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Phillcode helped me stand out! My CV website looks modern and professional, plus it includes a one-click download button for employers. Simple, clean, and effective.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Software Developer</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        As a freelancer, having a personalized website CV with contact features and downloadable resume options has helped me land international gigs faster than ever.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jessica Williams" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Jessica Williams</h4>
+                            <p>Freelance UI/UX Designer</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    Turning my CV PDF into a live website was the best decision I ever made. I’ve received 3 job offers already—recruiters love the downloadable version and the contact form!
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="author-avatar">
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>Marketing Manager</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    Phillcode helped me stand out! My CV website looks modern and professional, plus it includes a one-click download button for employers. Simple, clean, and effective.
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-avatar">
-                    <div class="author-info">
-                        <h4>Michael Chen</h4>
-                        <p>Software Developer</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    As a freelancer, having a personalized website CV with contact features and downloadable resume options has helped me land international gigs faster than ever.
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jessica Williams" class="author-avatar">
-                    <div class="author-info">
-                        <h4>Jessica Williams</h4>
-                        <p>Freelance UI/UX Designer</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1277,66 +1410,10 @@
                             <div class="error" id="message-error">Please enter your message</div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <button type="submit" class="btn" style="width: 100%;">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
-                    <script>
-                        document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Validate required fields
-    if (!name) {
-        document.getElementById('name-error').style.display = 'block';
-        return;
-    } else {
-        document.getElementById('name-error').style.display = 'none';
-    }
-    
-    if (!email || !validateEmail(email)) {
-        document.getElementById('email-error').style.display = 'block';
-        return;
-    } else {
-        document.getElementById('email-error').style.display = 'none';
-    }
-    
-    if (!message) {
-        document.getElementById('message-error').style.display = 'block';
-        return;
-    } else {
-        document.getElementById('message-error').style.display = 'none';
-    }
-    
-    // Format the message for WhatsApp
-    let whatsappMessage = `New Contact Form Submission:\n\n`;
-    whatsappMessage += `*Name:* ${name}\n`;
-    whatsappMessage += `*Email:* ${email}\n`;
-    if (phone) whatsappMessage += `*Phone:* ${phone}\n`;
-    if (subject) whatsappMessage += `*Subject:* ${subject}\n`;
-    whatsappMessage += `*Message:* ${message}`;
-    
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    
-    // Create WhatsApp URL
-    const whatsappUrl = `https://wa.me/254790617211?text=${encodedMessage}`;
-    
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank');
-});
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-                    </script>
                 </div>
 
                 <div class="contact-info">
@@ -1347,7 +1424,7 @@ function validateEmail(email) {
                             </div>
                             <div class="info-text">
                                 <h3>Email</h3>
-                                <a href="philemonmutisya@gmail.com">Philemonmutisya.com</a>
+                                <a href="mailto:philemonmutisya@gmail.com">philemonmutisya@gmail.com</a>
                             </div>
                         </div>
 
@@ -1367,10 +1444,7 @@ function validateEmail(email) {
                             </div>
                             <div class="info-text">
                                 <h3>WhatsApp</h3>
-                               <a href="https://wa.me/254790617211" target="_blank" style="text-decoration: none; color: inherit;">
-                                <i class="fab fa-whatsapp" style="font-size: 24px; color: #25D366;"></i>
-                                </a>
-
+                                <a href="https://wa.me/254790617211" target="_blank">Chat on WhatsApp</a>
                             </div>
                         </div>
 
@@ -1378,15 +1452,14 @@ function validateEmail(email) {
                             <div class="info-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
-                          <div class="info-text">
-                            <h3>Location</h3>
-                            <p>
-                                123 Business Ave, Suite 456<br>
-                                New Jersey, NJ 07030<br>
-                                <em>We also support remote workers across the globe.</em>
-                            </p>
+                            <div class="info-text">
+                                <h3>Location</h3>
+                                <p>
+                                    123 Business Ave, Suite 456<br>
+                                    New Jersey, NJ 07030<br>
+                                    <em>We also support remote workers across the globe.</em>
+                                </p>
                             </div>
-
                         </div>
 
                         <div class="social-links">
@@ -1406,11 +1479,11 @@ function validateEmail(email) {
     </section>
 
     <!-- Footer -->
- <footer>
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <a href="#" class="footer-logo">
+                    <a href="index.html" class="footer-logo">
                         <i class="fas fa-code"></i>
                         Phillcode
                     </a>
@@ -1439,11 +1512,11 @@ function validateEmail(email) {
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Web Development</a></li> 
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Mobile Apps</a></li> 
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> eCommerce</a></li> 
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li> 
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> SEO Services</a></li> 
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Web Development</a></li> 
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Mobile Apps</a></li> 
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> eCommerce</a></li> 
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li> 
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> SEO Services</a></li> 
                     </ul>
                 </div>
 
@@ -1460,99 +1533,154 @@ function validateEmail(email) {
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Phillcode. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #f72585;"></i> by Phillcode</p>
+                <p>&copy; 2026 Phillcode. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #f72585;"></i> by Phillcode</p>
             </div>
         </div>
     </footer>
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('success-message');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Reset errors
-        document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('input, textarea').forEach(el => {
-            el.classList.remove('input-error', 'shake');
-            el.style.borderColor = '';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('success-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Reset errors
+                    document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('input, textarea').forEach(el => {
+                        el.classList.remove('input-error', 'shake');
+                        el.style.borderColor = '';
+                    });
+                    
+                    let isValid = true;
+                    
+                    // Validate name
+                    const name = document.getElementById('name');
+                    if (!name.value.trim()) {
+                        showError(name, 'name-error');
+                        isValid = false;
+                    }
+                    
+                    // Validate email
+                    const email = document.getElementById('email');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email.value)) {
+                        showError(email, 'email-error');
+                        isValid = false;
+                    }
+                    
+                    // Validate message
+                    const message = document.getElementById('message');
+                    if (!message.value.trim()) {
+                        showError(message, 'message-error');
+                        isValid = false;
+                    }
+                    
+                    if (isValid) {
+                        // Get form values
+                        const phone = document.getElementById('phone').value;
+                        const subject = document.getElementById('subject').value;
+                        
+                        // Construct WhatsApp message
+                        let whatsappMessage = `New Contact Form Submission:\n\n`;
+                        whatsappMessage += `Name: ${name.value}\n`;
+                        whatsappMessage += `Email: ${email.value}\n`;
+                        if (phone) whatsappMessage += `Phone: ${phone}\n`;
+                        if (subject) whatsappMessage += `Subject: ${subject}\n`;
+                        whatsappMessage += `Message: ${message.value}`;
+                        
+                        // Encode the message for URL
+                        const encodedMessage = encodeURIComponent(whatsappMessage);
+                        
+                        // Create WhatsApp URL
+                        const whatsappUrl = `https://wa.me/254790617211?text=${encodedMessage}`;
+                        
+                        // Open WhatsApp in a new tab
+                        window.open(whatsappUrl, '_blank');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        successMessage.classList.add('show');
+                        contactForm.style.display = 'none';
+                        
+                        setTimeout(() => {
+                            successMessage.classList.remove('show');
+                            contactForm.style.display = 'block';
+                        }, 5000);
+                    }
+                });
+                
+                function showError(input, errorId) {
+                    input.classList.add('input-error', 'shake');
+                    input.style.borderColor = '#ef4444';
+                    document.getElementById(errorId).style.display = 'block';
+                    
+                    setTimeout(() => {
+                        input.classList.remove('shake');
+                    }, 500);
+                }
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Don't prevent default for links to other pages
+                    if (href.includes('.html')) return;
+                    
+                    e.preventDefault();
+                    
+                    const targetId = href;
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
         });
-        
-        let isValid = true;
-        
-        // Validate name
-        const name = document.getElementById('name');
-        if (!name.value.trim()) {
-            showError(name, 'name-error');
-            isValid = false;
-        }
-        
-        // Validate email
-        const email = document.getElementById('email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-            showError(email, 'email-error');
-            isValid = false;
-        }
-        
-        // Validate message
-        const message = document.getElementById('message');
-        if (!message.value.trim()) {
-            showError(message, 'message-error');
-            isValid = false;
-        }
-        
-        if (isValid) {
-            // Get form values
-            const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
-            
-            // Construct WhatsApp message
-            let whatsappMessage = `New Contact Form Submission:\n\n`;
-            whatsappMessage += `Name: ${name.value}\n`;
-            whatsappMessage += `Email: ${email.value}\n`;
-            if (phone) whatsappMessage += `Phone: ${phone}\n`;
-            if (subject) whatsappMessage += `Subject: ${subject}\n`;
-            whatsappMessage += `Message: ${message.value}`;
-            
-            // Encode the message for URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Replace '1234567890' with your actual WhatsApp number (with country code, no + or 0)
-            const whatsappNumber = '254790617211';
-            
-            // Create WhatsApp URL
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            // Open WhatsApp in a new tab
-            window.open(whatsappUrl, '_blank');
-            
-            // Reset form
-            form.reset();
-            successMessage.classList.add('show');
-            form.style.display = 'none';
-            
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-                form.style.display = 'block';
-            }, 5000);
-        }
-    });
-    
-    function showError(input, errorId) {
-        input.classList.add('input-error', 'shake');
-        input.style.borderColor = '#ef4444';
-        document.getElementById(errorId).style.display = 'block';
-        
-        setTimeout(() => {
-            input.classList.remove('shake');
-        }, 500);
-    }
-
-    // ... rest of your existing script ...
-});
-</script>
+    </script>
 </body>
 </html>
