@@ -667,7 +667,60 @@
         }
     </style>
 </head>
-<body>
+<body> <section class="mobile-back-section">
+
+  <style>
+    /* Hide by default */
+    .mobile-back-section {
+      display: none;
+    }
+
+    /* Show ONLY on mobile */
+    @media (max-width: 768px) {
+      .mobile-back-section {
+        display: block;
+        position: fixed;
+        top: 1.5cm; /* 👈 PUSHED DOWN BY 1cm */
+        left: 15px;
+        z-index: 9999;
+      }
+
+      .mobile-back-btn {
+        background: linear-gradient(
+          135deg,
+          #1e90ff,   /* blue */
+          #ffffff,  /* white */
+          #ffb6c1   /* baby pink */
+        );
+        border: none;
+        padding: 10px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .mobile-back-btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  </style>
+
+  <button class="mobile-back-btn" onclick="goBack()">
+    ← Back
+  </button>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</section>
     <!-- Fixed Navigation -->
     <header id="main-header">
         <nav class="nav-container">
@@ -676,9 +729,7 @@
                 Phill<span>Code</span>
             </a>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+            
             
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
