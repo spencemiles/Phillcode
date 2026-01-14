@@ -322,7 +322,6 @@
             }
         }
 
-        /* Rest of your styles remain the same... */
         /* About Intro */
         .about-intro {
             padding: 100px 0;
@@ -340,12 +339,19 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            height: 400px;
         }
 
         .about-img img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
         }
 
         .about-text h2 {
@@ -386,7 +392,7 @@
             margin-bottom: 20px;
         }
 
-        /* Team Section */
+        /* UPDATED TEAM SECTION WITH PERFECT IMAGE FITTING */
         .team {
             padding: 100px 0;
         }
@@ -405,6 +411,9 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .team-member:hover {
@@ -412,30 +421,60 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
+        .member-img-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
         .member-img {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
+            object-position: center top; /* Focus on face area */
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .team-member:hover .member-img {
+            transform: scale(1.08);
         }
 
         .member-info {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .member-info h3 {
             margin-bottom: 5px;
+            color: var(--dark);
+            font-size: 1.4rem;
         }
 
         .member-info p.position {
             color: var(--primary);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 15px;
+            font-size: 0.95rem;
         }
 
+        .member-info p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        /* Social Links */
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-top: auto;
         }
 
         .social-link {
@@ -453,6 +492,29 @@
         .social-link:hover {
             background: var(--primary);
             color: white;
+        }
+
+        /* Improved Fallback for broken images */
+        .member-img-container::before {
+            content: attr(data-initials);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(37, 99, 235, 0.2);
+            font-family: 'Poppins', sans-serif;
+            z-index: 0;
+            display: none; /* Only show if image fails */
+        }
+
+        /* Only show initials when image is broken */
+        .member-img-container img:not([src]), 
+        .member-img-container img[src=""],
+        .member-img-container img.error + ::before {
+            content: attr(data-initials);
+            display: block;
         }
 
         /* Timeline */
@@ -557,6 +619,46 @@
             opacity: 0.9;
         }
 
+        /* Values Section */
+        .values {
+            padding: 80px 0;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
         /* CTA */
         .cta {
             padding: 100px 0;
@@ -654,6 +756,7 @@
 
             .about-img {
                 order: -1;
+                height: 350px;
             }
 
             .footer-container {
@@ -713,6 +816,31 @@
             .timeline-content {
                 padding: 25px;
             }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .member-img-container {
+                height: 250px;
+            }
+            
+            .member-info {
+                padding: 20px;
+            }
+            
+            .member-info h3 {
+                font-size: 1.3rem;
+            }
+            
+            .member-info p.position {
+                font-size: 0.9rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -727,6 +855,21 @@
                 font-size: 24px;
                 bottom: 15px;
                 right: 15px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .member-img-container {
+                height: 300px;
+            }
+            
+            .about-img {
+                height: 300px;
             }
         }
     </style>
@@ -747,7 +890,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Our Work</a></li>
-                <li><a href="aboutus.html" class="nav-link active" class="active">About</a></li>
+                <li><a href="aboutus.html" class="nav-link active">About</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -763,7 +906,6 @@
         </div>
     </section>
 
-    <!-- Rest of your content remains exactly the same... -->
     <!-- About Intro -->
     <section class="about-intro">
         <div class="container">
@@ -808,7 +950,7 @@
     <section class="values">
         <div class="container">
             <h2 class="section-title text-center animate">Our Values</h2>
-            <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+            <div class="values-grid">
                 <div class="value-item animate delay-1">
                     <div class="value-icon">
                         <i class="fas fa-rocket"></i>
@@ -878,34 +1020,54 @@
             <div class="team-grid">
                 <!-- Philemon Mutisya -->
                 <div class="team-member animate delay-2">
-                    <img src="https://iili.io/FR089Bp.md.jpg" alt="Philemon Mutisya" class="member-img">
+                    <div class="member-img-container" data-initials="PM">
+                        <img src="https://iili.io/FR089Bp.md.jpg" alt="Philemon Mutisya" class="member-img" onerror="this.onerror=null; this.style.display='none'; this.parentElement.setAttribute('data-initials', 'PM')">
+                    </div>
                     <div class="member-info">
                         <h3>Philemon Mutisya</h3>
                         <p class="position">Founder & Lead Full-Stack Developer</p>
-                        <p>As the founder and lead developer, Philemon drives the vision and execution at Phillcode. With a strong background in software engineering, ethical hacking, and digital marketing, he combines technical mastery with business insight. His leadership ensures every website is secure, scalable, and aligned with the client's growth goals.</p>
+                        <p>As the founder and lead developer, Philemon drives the vision and execution at Phillcode. With a strong background in software engineering, ethical hacking, and digital marketing, he combines technical mastery with business insight.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Lloyd Ogutu -->
-                <div class="team-member animate delay-5">
-                    <img src="https://iili.io/FNXCx4t.md.jpg" alt="Lloyd Ogutu" class="member-img">
+                <div class="team-member animate delay-3">
+                    <div class="member-img-container" data-initials="LO">
+                        <img src="https://iili.io/FNXCx4t.md.jpg" alt="Lloyd Ogutu" class="member-img" onerror="this.onerror=null; this.style.display='none'; this.parentElement.setAttribute('data-initials', 'LO')">
+                    </div>
                     <div class="member-info">
                         <h3>Lloyd Ogutu</h3>
                         <p class="position">Full-Stack WordPress Specialist</p>
-                        <p>Lloyd is a professional full-stack developer with deep expertise in WordPress. Known for his precision and reliability, he delivers high-performance websites tailored to client needs. His clean code, speed, and attention to detail make him a trusted expert in every project.</p>
+                        <p>Lloyd is a professional full-stack developer with deep expertise in WordPress. Known for his precision and reliability, he delivers high-performance websites tailored to client needs.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Marion Awino -->
                 
 
                 <!-- Ian Shannon -->
-                <div class="team-member animate delay-4">
-                    <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1768391532/WhatsApp_Image_2026-01-14_at_14.50.41_fkmac6.jpg" alt="Ian Shannon" class="member-img">
+                <div class="team-member animate delay-5">
+                    <div class="member-img-container" data-initials="IS">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1768391532/WhatsApp_Image_2026-01-14_at_14.50.41_fkmac6.jpg" alt="Ian Shannon" class="member-img" onerror="this.onerror=null; this.style.display='none'; this.parentElement.setAttribute('data-initials', 'IS')">
+                    </div>
                     <div class="member-info">
                         <h3>Ian Shannon</h3>
                         <p class="position">Project Manager & Client Relations</p>
-                        <p>Ian ensures every project moves from concept to completion with efficiency. He manages timelines, leads execution, and builds strong client relationships through clear communication and consistency. His project management skills and reliability make him essential to our delivery process.</p>
+                        <p>Ian ensures every project moves from concept to completion with efficiency. He manages timelines, leads execution, and builds strong client relationships through clear communication and consistency.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1111,6 +1273,25 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Improved image error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.member-img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const container = this.parentElement;
+                    container.style.display = 'flex';
+                    container.style.alignItems = 'center';
+                    container.style.justifyContent = 'center';
+                    container.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
+                    const initials = container.getAttribute('data-initials');
+                    if (initials) {
+                        container.innerHTML = `<span style="font-size: 3rem; font-weight: 700; color: rgba(37, 99, 235, 0.5); font-family: 'Poppins', sans-serif;">${initials}</span>`;
+                    }
+                });
             });
         });
     </script>
