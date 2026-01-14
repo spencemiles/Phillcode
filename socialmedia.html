@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -517,60 +516,6 @@
     </style>
 </head>
 <body>
-     <section class="mobile-back-section">
-
-  <style>
-    /* Hide by default */
-    .mobile-back-section {
-      display: none;
-    }
-
-    /* Show ONLY on mobile */
-    @media (max-width: 768px) {
-      .mobile-back-section {
-        display: block;
-        position: fixed;
-        top: 1.5cm; /* 👈 PUSHED DOWN BY 1cm */
-        left: 15px;
-        z-index: 9999;
-      }
-
-      .mobile-back-btn {
-        background: linear-gradient(
-          135deg,
-          #1e90ff,   /* blue */
-          #ffffff,  /* white */
-          #ffb6c1   /* baby pink */
-        );
-        border: none;
-        padding: 10px 16px;
-        border-radius: 30px;
-        font-size: 14px;
-        font-weight: 600;
-        color: #000;
-        cursor: pointer;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .mobile-back-btn:active {
-        transform: scale(0.95);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-    }
-  </style>
-
-  <button class="mobile-back-btn" onclick="goBack()">
-    ← Back
-  </button>
-
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-
-</section>
     <!-- Header -->
  <!-- Start of Navigation Section -->
 <section id="navigation-section">
@@ -769,6 +714,7 @@
     }
   </style>
 
+  
   <!-- Font Awesome for the WhatsApp icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </section>
@@ -779,12 +725,999 @@
                 <h1>Social Media Integration – Stay Connected in Real-Time</h1>
                 <p>At Phillcode, we understand that modern business is no longer just about having a website. It's about being present where your audience already spends their time—on social media.</p>
                 <a href="#integrations" class="btn">Explore Integrations</a>
+                <!-- Button to navigate to the Social Media Management section on socialmedia.html -->
+<a href="socialmedia.html#phill-social-management" class="phill-social-jump-btn">
+    <i class="fas fa-rocket"></i> Jump to Social Media Management
+</a>
+
+<style>
+    .phill-social-jump-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, #4a6bff 0%, #8a2be2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(74, 107, 255, 0.25);
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px 0;
+    }
+    
+    .phill-social-jump-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(74, 107, 255, 0.35);
+        color: white;
+    }
+    
+    .phill-social-jump-btn:active {
+        transform: translateY(-1px);
+    }
+    
+    .phill-social-jump-btn i {
+        margin-right: 10px;
+        font-size: 1.1rem;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .phill-social-jump-btn {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin: 20px auto;
+        }
+    }
+</style>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="section features" id="features">
+   
+        <section id="phill-social-management" class="phill-social-section">
+    <style>
+        /* Scoped styles only for this section */
+        .phill-social-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+        }
+        
+        .phill-social-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 1️⃣ Strong Hook */
+        .phill-social-hook {
+            text-align: center;
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .phill-social-hook.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phill-social-main-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #4a6bff 0%, #8a2be2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .phill-social-subtitle {
+            font-size: 1.3rem;
+            color: #5a6c7d;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            font-weight: 500;
+        }
+        
+        .phill-social-intro {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* 2️⃣ Pain Points */
+        .phill-social-pain-points {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 70px;
+            box-shadow: 0 20px 40px rgba(74, 107, 255, 0.08);
+            border: 1px solid #eef2ff;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+        }
+        
+        .phill-social-pain-points.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phill-social-pain-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #e53e3e;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .phill-social-pain-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #e53e3e;
+            border-radius: 2px;
+        }
+        
+        .phill-social-pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .phill-social-pain-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .phill-social-pain-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.1);
+        }
+        
+        .phill-social-pain-icon {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .phill-social-pain-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #4a5568;
+        }
+        
+        /* 3️⃣ Services Breakdown */
+        .phill-social-services-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 50px;
+        }
+        
+        .phill-social-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+        }
+        
+        .phill-social-services-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phill-social-service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid #eef2ff;
+        }
+        
+        .phill-social-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(74, 107, 255, 0.12);
+            border-color: #4a6bff;
+        }
+        
+        .phill-social-service-icon {
+            font-size: 2.5rem;
+            color: #4a6bff;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6ebff 100%);
+            border-radius: 12px;
+        }
+        
+        .phill-social-service-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .phill-social-service-desc {
+            color: #5a6c7d;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        /* 4️⃣ Why Phillcode? */
+        .phill-social-why {
+            background: linear-gradient(135deg, #4a6bff 0%, #8a2be2 100%);
+            border-radius: 20px;
+            padding: 60px 50px;
+            margin-bottom: 70px;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+        }
+        
+        .phill-social-why.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phill-social-why-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .phill-social-why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .phill-social-why-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .phill-social-why-icon {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .phill-social-why-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* 5️⃣ Social Proof */
+        .phill-social-proof {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s;
+        }
+        
+        .phill-social-proof.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phill-social-proof-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .phill-social-proof-text {
+            color: #5a6c7d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        /* 6️⃣ Strong CTA */
+        .phill-social-cta {
+            text-align: center;
+            padding: 70px 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(74, 107, 255, 0.15);
+            border: 2px solid #e6ebff;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 1s, transform 0.8s ease 1s;
+        }
+        
+        .phill-social-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phill-social-cta-title {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #4a6bff 0%, #8a2be2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .phill-social-cta-subtitle {
+            font-size: 1.2rem;
+            color: #5a6c7d;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .phill-social-cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .phill-social-cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 40px rgba(37, 211, 102, 0.4);
+        }
+        
+        .phill-social-cta-button:active {
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .phill-social-main-title {
+                font-size: 2.3rem;
+            }
+            
+            .phill-social-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .phill-social-why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .phill-social-section {
+                padding: 60px 15px;
+            }
+            
+            .phill-social-main-title {
+                font-size: 2rem;
+            }
+            
+            .phill-social-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .phill-social-pain-points,
+            .phill-social-why {
+                padding: 30px 25px;
+            }
+            
+            .phill-social-services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phill-social-why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phill-social-cta-title {
+                font-size: 2rem;
+            }
+            
+            .phill-social-cta-button {
+                padding: 18px 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .phill-social-main-title {
+                font-size: 1.8rem;
+            }
+            
+            .phill-social-cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .phill-social-pain-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phill-social-service-card {
+                padding: 25px 20px;
+            }
+            
+            .phill-social-cta {
+                padding: 50px 25px;
+            }
+        }
+    </style>
+
+    <div class="phill-social-container">
+        <!-- 1️⃣ Strong Hook -->
+        <div class="phill-social-hook">
+            <h1 class="phill-social-main-title">Turn Your Social Media Into a Lead-Generating Machine</h1>
+            <p class="phill-social-subtitle">Posting randomly doesn't work. Consistency + Strategy = Real Sales.</p>
+            <p class="phill-social-intro">At Phillcode, we don't just manage your social media—we transform it into a powerful sales channel. We create content that connects, strategies that convert, and campaigns that grow your business while you focus on what you do best.</p>
+        </div>
+
+        <!-- 2️⃣ Pain Points -->
+        <div class="phill-social-pain-points">
+            <h2 class="phill-social-pain-title">Is This Hurting Your Business?</h2>
+            <div class="phill-social-pain-grid">
+                <div class="phill-social-pain-item">
+                    <i class="fas fa-comment-slash phill-social-pain-icon"></i>
+                    <p class="phill-social-pain-text">Posting regularly but getting zero engagement or comments</p>
+                </div>
+                <div class="phill-social-pain-item">
+                    <i class="fas fa-users-slash phill-social-pain-icon"></i>
+                    <p class="phill-social-pain-text">Followers aren't turning into actual customers or leads</p>
+                </div>
+                <div class="phill-social-pain-item">
+                    <i class="fas fa-palette phill-social-pain-icon"></i>
+                    <p class="phill-social-pain-text">Inconsistent branding that confuses your audience</p>
+                </div>
+                <div class="phill-social-pain-item">
+                    <i class="fas fa-clock phill-social-pain-icon"></i>
+                    <p class="phill-social-pain-text">No time to properly manage multiple social platforms</p>
+                </div>
+                <div class="phill-social-pain-item">
+                    <i class="fas fa-chart-line-down phill-social-pain-icon"></i>
+                    <p class="phill-social-pain-text">Competitors getting all the attention and customers</p>
+                </div>
+                <div class="phill-social-pain-item">
+                    <i class="fas fa-question-circle phill-social-pain-icon"></i>
+                    <p class="phill-social-pain-text">Not knowing what content actually drives sales</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3️⃣ Services Breakdown -->
+        <h2 class="phill-social-services-title">Professional Social Media Management</h2>
+        <div class="phill-social-services-grid">
+            <div class="phill-social-service-card">
+                <i class="fas fa-paint-brush phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Content Creation & Branding</h3>
+                <p class="phill-social-service-desc">Professional designs, compelling captions, and brand-aligned visuals that tell your story and attract your ideal customers.</p>
+            </div>
+            <div class="phill-social-service-card">
+                <i class="fas fa-calendar-alt phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Content Scheduling & Consistency</h3>
+                <p class="phill-social-service-desc">Daily or weekly posting at optimal times when your audience is most active and engaged.</p>
+            </div>
+            <div class="phill-social-service-card">
+                <i class="fas fa-comments phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Community & DM Management</h3>
+                <p class="phill-social-service-desc">Timely replies to comments and messages to build relationships and convert interested followers into leads.</p>
+            </div>
+            <div class="phill-social-service-card">
+                <i class="fas fa-rocket phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Instagram, Facebook, X, Youtube & TikTok Growth</h3>
+                <p class="phill-social-service-desc">Organic strategies focused on real engagement, not fake followers or empty vanity metrics.</p>
+            </div>
+            <div class="phill-social-service-card">
+                <i class="fas fa-hashtag phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Hashtag & Caption Strategy</h3>
+                <p class="phill-social-service-desc">Research-driven hashtag selection and caption writing that reaches your target audience, not random users.</p>
+            </div>
+            <div class="phill-social-service-card">
+                <i class="fas fa-chart-bar phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Analytics & Performance Reports</h3>
+                <p class="phill-social-service-desc">Clear monthly reports showing exactly what's working, what's converting, and where to optimize.</p>
+            </div>
+            <div class="phill-social-service-card">
+                <i class="fas fa-bullhorn phill-social-service-icon"></i>
+                <h3 class="phill-social-service-title">Paid Ads Support</h3>
+                <p class="phill-social-service-desc">Meta Ads setup and management to accelerate growth, drive targeted traffic, and increase sales.</p>
+            </div>
+        </div>
+
+        <!-- 4️⃣ Why Phillcode? -->
+        <div class="phill-social-why">
+            <h2 class="phill-social-why-title">Why Choose Phillcode?</h2>
+            <div class="phill-social-why-grid">
+                <div class="phill-social-why-item">
+                    <i class="fas fa-bullseye phill-social-why-icon"></i>
+                    <p class="phill-social-why-text">Results-driven strategy focused on your business goals, not just likes</p>
+                </div>
+                <div class="phill-social-why-item">
+                    <i class="fas fa-user-check phill-social-why-icon"></i>
+                    <p class="phill-social-why-text">Real engagement only—no fake followers or bots that hurt your credibility</p>
+                </div>
+                <div class="phill-social-why-item">
+                    <i class="fas fa-sitemap phill-social-why-icon"></i>
+                    <p class="phill-social-why-text">Combined social media + web + SEO expertise for holistic digital growth</p>
+                </div>
+                <div class="phill-social-why-item">
+                    <i class="fas fa-comments phill-social-why-icon"></i>
+                    <p class="phill-social-why-text">Clear communication with weekly updates and monthly strategy reviews</p>
+                </div>
+                <div class="phill-social-why-item">
+                    <i class="fas fa-tags phill-social-why-icon"></i>
+                    <p class="phill-social-why-text">Affordable, scalable packages that grow with your business</p>
+                </div>
+                <div class="phill-social-why-item">
+                    <i class="fas fa-award phill-social-why-icon"></i>
+                    <p class="phill-social-why-text">Professional approach with proven frameworks that deliver consistent results</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5️⃣ Social Proof -->
+        <div class="phill-social-proof">
+            <h2 class="phill-social-proof-title">Trusted by Businesses Across Different Industries</h2>
+            <p class="phill-social-proof-text">Phillcode combines social media expertise with website development and digital marketing knowledge to create comprehensive strategies that actually convert. We've helped clients increase engagement by 300%, improve lead quality, and build sustainable social media presence that drives real business growth.</p>
+        </div>
+
+        <!-- 6️⃣ Strong CTA -->
+        <div class="phill-social-cta">
+            <h2 class="phill-social-cta-title">Ready to Turn Followers Into Paying Customers?</h2>
+            <p class="phill-social-cta-subtitle">Stop wasting time on social media that doesn't deliver results. Let's discuss a customized strategy that will grow your audience, increase engagement, and drive sales. Click below to start the conversation on WhatsApp—we'll respond within 1 hour during business hours.</p>
+            <a href="https://wa.me/254790617211" class="phill-social-cta-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Get a Social Media Manager Now
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Scoped JavaScript only for this section
+        (function() {
+            const section = document.getElementById('phill-social-management');
+            
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all animated elements
+            const animatedElements = section.querySelectorAll(
+                '.phill-social-hook, .phill-social-pain-points, .phill-social-services-grid, .phill-social-why, .phill-social-proof, .phill-social-cta'
+            );
+            
+            animatedElements.forEach(el => observer.observe(el));
+            
+            // Hover effect enhancements
+            const serviceCards = section.querySelectorAll('.phill-social-service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // CTA button interaction
+            const ctaButton = section.querySelector('.phill-social-cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function() {
+                    // Optional: Add tracking or confirmation here
+                    console.log('Social Media CTA clicked');
+                });
+            }
+            
+            // Initialize animations on load for elements already in view
+            window.addEventListener('load', () => {
+                animatedElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            });
+        })();
+    </script>
+</section>
+<!-- Insert this block right before the Core Features heading -->
+<div class="phill-social-explanation">
+    <h2 class="phill-social-explanation-title">What Is Social Media Integration?</h2>
+    
+    <p class="phill-social-explanation-intro">
+        Social Media Integration allows your website and social platforms to work as one seamless system. 
+        Instead of existing separately, they connect to create a unified digital presence that engages visitors 
+        at every touchpoint and turns casual browsers into loyal customers.
+    </p>
+    
+    <div class="phill-social-integration-grid">
+        <div class="phill-social-integration-card">
+            <div class="phill-social-integration-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3 class="phill-social-integration-name">Website + WhatsApp</h3>
+            <p class="phill-social-integration-desc">
+                Visitors instantly chat with your team directly from any page. Perfect for quick questions, 
+                quotes, and building personal relationships that lead to sales.
+            </p>
+        </div>
+        
+        <div class="phill-social-integration-card">
+            <div class="phill-social-integration-icon">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <h3 class="phill-social-integration-name">Website + Instagram</h3>
+            <p class="phill-social-integration-desc">
+                Showcase your latest posts, stories, and reals directly on your site. Build credibility 
+                with live social proof and grow followers without visitors leaving your website.
+            </p>
+        </div>
+        
+        <div class="phill-social-integration-card">
+            <div class="phill-social-integration-icon">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <h3 class="phill-social-integration-name">Website + Facebook</h3>
+            <p class="phill-social-integration-desc">
+                Display reviews, embed your page, and enable Messenger chat. Leverage Facebook's massive 
+                user base while keeping engagement on your professional website.
+            </p>
+        </div>
+        
+        <div class="phill-social-integration-card">
+            <div class="phill-social-integration-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h3 class="phill-social-integration-name">Website + Live Chat</h3>
+            <p class="phill-social-integration-desc">
+                Provide real-time support when visitors need it most. Answer questions immediately, 
+                reduce bounce rates, and capture leads 24/7 with automated responses.
+            </p>
+        </div>
+    </div>
+    
+    <div class="phill-social-benefits">
+        <h3 class="phill-social-benefits-title">How Integration Transforms Your Business:</h3>
+        <div class="phill-social-benefits-list">
+            <div class="phill-social-benefit-item">
+                <i class="fas fa-bullhorn"></i>
+                <span><strong>Improves Communication:</strong> Instant connections mean faster responses and happier customers</span>
+            </div>
+            <div class="phill-social-benefit-item">
+                <i class="fas fa-shield-alt"></i>
+                <span><strong>Increases Trust:</strong> Social proof and real-time interaction build credibility immediately</span>
+            </div>
+            <div class="phill-social-benefit-item">
+                <i class="fas fa-user-friends"></i>
+                <span><strong>Converts Visitors:</strong> Turn passive browsers into active leads with seamless conversation paths</span>
+            </div>
+            <div class="phill-social-benefit-item">
+                <i class="fas fa-clock"></i>
+                <span><strong>Boosts Engagement:</strong> Keep users on your site longer with interactive social elements</span>
+            </div>
+        </div>
+    </div>
+    
+    <p class="phill-social-explanation-conclusion">
+        Instead of visitors leaving your site to find you on social media, integration brings your social 
+        presence to them—creating a smooth journey from discovery to conversion without ever losing their attention.
+    </p>
+</div>
+
+<style>
+    /* Explanation Section Styles */
+    .phill-social-explanation {
+        background: linear-gradient(135deg, #f0f4ff 0%, #f8f9ff 100%);
+        border-radius: 20px;
+        padding: 60px 50px;
+        margin-bottom: 70px;
+        border: 1px solid #e6ebff;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .phill-social-explanation.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .phill-social-explanation-title {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 25px;
+        background: linear-gradient(135deg, #4a6bff 0%, #8a2be2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .phill-social-explanation-intro {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #5a6c7d;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+    }
+    
+    .phill-social-integration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .phill-social-integration-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px 25px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid #eef2ff;
+    }
+    
+    .phill-social-integration-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 35px rgba(74, 107, 255, 0.1);
+    }
+    
+    .phill-social-integration-icon {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        height: 80px;
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    
+    .phill-social-integration-card:nth-child(1) .phill-social-integration-icon {
+        color: #25D366;
+        background: rgba(37, 211, 102, 0.1);
+    }
+    
+    .phill-social-integration-card:nth-child(2) .phill-social-integration-icon {
+        color: #E1306C;
+        background: rgba(225, 48, 108, 0.1);
+    }
+    
+    .phill-social-integration-card:nth-child(3) .phill-social-integration-icon {
+        color: #1877F2;
+        background: rgba(24, 119, 242, 0.1);
+    }
+    
+    .phill-social-integration-card:nth-child(4) .phill-social-integration-icon {
+        color: #4a6bff;
+        background: rgba(74, 107, 255, 0.1);
+    }
+    
+    .phill-social-integration-card:hover .phill-social-integration-icon {
+        transform: scale(1.1);
+    }
+    
+    .phill-social-integration-name {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+    
+    .phill-social-integration-desc {
+        color: #5a6c7d;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    .phill-social-benefits {
+        background: white;
+        border-radius: 16px;
+        padding: 35px 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+    
+    .phill-social-benefits-title {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .phill-social-benefits-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .phill-social-benefit-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 12px 0;
+    }
+    
+    .phill-social-benefit-item i {
+        color: #4a6bff;
+        font-size: 1.2rem;
+        margin-right: 15px;
+        margin-top: 3px;
+        flex-shrink: 0;
+    }
+    
+    .phill-social-benefit-item span {
+        color: #5a6c7d;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    .phill-social-benefit-item strong {
+        color: #2c3e50;
+    }
+    
+    .phill-social-explanation-conclusion {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #4a6bff;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.7;
+        font-weight: 500;
+        padding: 20px;
+        background: rgba(74, 107, 255, 0.05);
+        border-radius: 12px;
+        border-left: 4px solid #4a6bff;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .phill-social-integration-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .phill-social-benefits-list {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .phill-social-explanation {
+            padding: 40px 30px;
+            margin-bottom: 50px;
+        }
+        
+        .phill-social-explanation-title {
+            font-size: 1.9rem;
+        }
+        
+        .phill-social-explanation-intro {
+            font-size: 1rem;
+        }
+        
+        .phill-social-integration-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .phill-social-benefits {
+            padding: 25px;
+        }
+        
+        .phill-social-integration-card {
+            padding: 25px 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .phill-social-explanation {
+            padding: 30px 20px;
+        }
+        
+        .phill-social-explanation-title {
+            font-size: 1.7rem;
+        }
+        
+        .phill-social-benefit-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .phill-social-benefit-item i {
+            margin-bottom: 8px;
+        }
+    }
+</style>
+
+<script>
+    (function() {
+        // Add scroll animation to the explanation section
+        const explanationSection = document.querySelector('.phill-social-explanation');
+        
+        if (explanationSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            observer.observe(explanationSection);
+            
+            // Add click animation to integration cards
+            const integrationCards = explanationSection.querySelectorAll('.phill-social-integration-card');
+            integrationCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-8px)';
+                    }, 150);
+                });
+            });
+            
+            // Check if already in view on load
+            window.addEventListener('load', () => {
+                const rect = explanationSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    explanationSection.classList.add('visible');
+                }
+            });
+        }
+    })();
+</script>
+ <section class="section features" id="features">
         <div class="container">
             <h2 class="section-title">Why Social Media Integration Matters</h2>
             <p class="text-center mb-4">In the digital age, social platforms are the new storefronts. Consumers research, browse, share, and even buy directly from or through social media.</p>
@@ -840,7 +1773,6 @@
             </div>
         </div>
     </section>
-
     <!-- Integration Section -->
     <section class="section integration" id="integrations">
         <div class="container">
@@ -930,13 +1862,14 @@
             <p>Click below to start a chat, follow our journey, or share your experience with us online.</p>
             <a href="#" class="btn">Connect With Us</a>
             
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+           <div class="social-links">
+    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" class="social-link" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+
         </div>
     </section>
 
@@ -992,10 +1925,12 @@
 
     <!-- Social Share Buttons -->
     <div class="social-share">
-        <a href="#" class="facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="pinterest" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+           <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" class="social-link" aria-label="twitter"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
     </div>
 
     <script>
