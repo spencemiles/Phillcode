@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of CVs: Web-Based Professional Profiles</title>
+    <title>Portfolio Creation Service | Phillcode</title>
+    <link rel="icon" type="image/png" href="https://iili.io/FNXLSr7.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,16 +12,17 @@
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #7c3aed;
-            --dark-color: #1e293b;
+            --primary-color: #4a6bff;
+            --secondary-color: #ff6b6b;
+            --accent-color: #7c3aed;
+            --dark-color: #2c3e50;
             --light-color: #f8fafc;
             --text-color: #334155;
             --text-light: #64748b;
             --white: #ffffff;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --transition: all 0.3s ease;
-            --border-radius: 8px;
+            --border-radius: 10px;
         }
 
         * {
@@ -36,7 +38,6 @@
             color: var(--text-color);
             background-color: var(--light-color);
             scroll-behavior: smooth;
-            padding-top: 80px; /* Added for fixed navbar */
         }
 
         h1, h2, h3, h4 {
@@ -64,8 +65,8 @@
 
         .btn {
             display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--primary-color);
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: var(--white);
             border: none;
             border-radius: var(--border-radius);
@@ -74,22 +75,22 @@
             transition: var(--transition);
             text-align: center;
             box-shadow: var(--shadow);
+            font-size: 1rem;
         }
 
         .btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(74, 107, 255, 0.2);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background: transparent;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
         }
 
         .btn-outline:hover {
-            background-color: var(--primary-color);
+            background: var(--primary-color);
             color: var(--white);
         }
 
@@ -117,12 +118,6 @@
             }
         }
 
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
         .section-title::after {
             content: '';
             display: block;
@@ -137,11 +132,414 @@
             text-align: center;
         }
 
-        .mb-4 {
-            margin-bottom: 1.5rem;
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, rgba(74, 107, 255, 0.1), rgba(124, 58, 237, 0.1));
+            padding: 100px 0;
+            margin-top: 80px;
         }
 
-        /* ===== FIXED NAVIGATION ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+                margin-top: 70px;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ===== PROBLEM SECTION ===== */
+        .problem {
+            background: linear-gradient(135deg, #ffeded, #fff5f5);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        /* ===== SOLUTION SECTION ===== */
+        .solution {
+            background: var(--white);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .solution-features li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .solution-features li i {
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .solution-preview {
+            text-align: center;
+        }
+
+        .solution-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            background: linear-gradient(135deg, rgba(74, 107, 255, 0.05), rgba(124, 58, 237, 0.05));
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            background: rgba(74, 107, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process {
+            background: var(--white);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .process-steps {
+                flex-wrap: wrap;
+            }
+        }
+
+        .process-step {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        /* ===== PORTFOLIO SHOWCASE ===== */
+        .showcase {
+            background: linear-gradient(135deg, rgba(74, 107, 255, 0.05), rgba(124, 58, 237, 0.05));
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .showcase-item {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .showcase-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .showcase-content {
+            padding: 30px;
+        }
+
+        .showcase-content h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .showcase-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tag {
+            background: rgba(74, 107, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing {
+            background: var(--white);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid #e2e8f0;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.popular {
+                transform: none;
+            }
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pricing-features i {
+            color: var(--primary-color);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+
+        .cta .btn:hover {
+            background: #f1f5f9;
+        }
+
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ===== NAVIGATION ===== */
+        /* Copy the navigation CSS from your existing Phillcode website */
         .navbar {
             position: fixed;
             top: 0;
@@ -151,12 +549,6 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             padding: 20px 5%;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            padding: 15px 5%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -219,14 +611,12 @@
             width: 100%;
         }
 
-        /* Mobile Menu Button */
         .hamburger {
             display: none;
             background: none;
             border: none;
             cursor: pointer;
             padding: 5px;
-            z-index: 1001;
         }
 
         .hamburger span {
@@ -236,35 +626,30 @@
             background: var(--primary-color);
             margin: 5px 0;
             border-radius: 3px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
             .navbar {
                 padding: 15px 5%;
             }
-            
+
             .hamburger {
                 display: block;
             }
-            
+
             .hamburger.active span:nth-child(1) {
                 transform: rotate(45deg) translate(6px, 6px);
             }
-            
+
             .hamburger.active span:nth-child(2) {
                 opacity: 0;
             }
-            
+
             .hamburger.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -6px);
             }
-            
+
             .nav-menu {
                 position: fixed;
                 top: 70px;
@@ -279,448 +664,20 @@
                 box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
                 z-index: 999;
             }
-            
+
             .nav-menu.active {
                 left: 0;
             }
-            
+
             .nav-link {
                 font-size: 1.1rem;
                 padding: 10px 20px;
             }
-            
-            .nav-link::after {
-                width: calc(100% - 40px);
-                left: 20px;
-            }
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(124, 58, 237, 0.9)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80') no-repeat center center/cover;
-            height: calc(100vh - 80px);
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                height: calc(100vh - 70px);
-                padding: 0 20px;
-            }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: var(--white);
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Evolution Timeline */
-        .evolution {
-            background-color: var(--white);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px;
-        }
-
-        @media (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
-            }
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -12px;
-            background-color: var(--white);
-            border: 4px solid var(--primary-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-item::after {
-                left: 18px;
-            }
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .right::after {
-            left: -12px;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .left::after, .right::after {
-                left: 18px;
-            }
-            
-            .right {
-                left: 0%;
-            }
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--white);
-            position: relative;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .timeline-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .timeline-content p {
-            margin-bottom: 10px;
-        }
-
-        .timeline-content ul {
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        .timeline-content li {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .timeline-content i {
-            color: var(--primary-color);
-        }
-
-        .timeline-date {
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            background-color: #f1f5f9;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 0 10px;
-            }
-        }
-
-        .benefit-card {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        @media (max-width: 768px) {
-            .benefit-card {
-                padding: 25px 20px;
-            }
-        }
-
-        .benefit-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .benefit-card:hover {
-                transform: translateY(-5px);
-            }
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .benefit-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Features Section */
-        .features {
-            background-color: var(--white);
-        }
-
-        .features-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .feature-tab {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .feature-tab.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature-tab:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .feature-content {
-            padding: 25px;
-        }
-
-        .feature-content h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .feature-content ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .feature-content li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .feature-content li:before {
-            content: '•';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Demo Section */
-        .demo {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
-        }
-
-        .demo-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        @media (max-width: 992px) {
-            .demo-container {
-                flex-direction: column;
-                gap: 40px;
-            }
-        }
-
-        .demo-content {
-            flex: 1;
-        }
-
-        .demo-content ul {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .demo-content li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .demo-content li:before {
-            content: '✓';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-
-        .demo-preview {
-            flex: 1;
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            transform: rotate3d(0.5, 1, 0, 15deg);
-            transition: var(--transition);
-        }
-
-        .demo-preview:hover {
-            transform: rotate3d(0.5, 1, 0, 5deg);
-        }
-
-        @media (max-width: 992px) {
-            .demo-preview {
-                margin-top: 20px;
-                transform: none;
-                width: 100%;
-                max-width: 600px;
-            }
-            
-            .demo-preview:hover {
-                transform: none;
-            }
-        }
-
-        .demo-preview img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: var(--border-radius);
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-align: center;
-        }
-
-        .cta h2 {
-            margin-bottom: 20px;
-            color: var(--white);
-        }
-
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-
-        .cta .btn-outline {
-            color: var(--white);
-            border-color: var(--white);
-        }
-
-        .cta .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-        }
-
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
-            background-color: var(--dark-color);
+            background: var(--dark-color);
             color: var(--white);
             padding: 50px 0 20px;
         }
@@ -732,25 +689,11 @@
             margin-bottom: 40px;
         }
 
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .footer-column h3 {
-            font-size: 1.3rem;
+            color: var(--white);
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
-            color: var(--white);
         }
 
         .footer-column h3::after {
@@ -760,22 +703,22 @@
             bottom: 0;
             width: 40px;
             height: 2px;
-            background-color: var(--secondary-color);
+            background: var(--secondary-color);
         }
 
-        .footer-column ul {
+        .footer-links {
             list-style: none;
         }
 
-        .footer-column ul li {
+        .footer-links li {
             margin-bottom: 10px;
         }
 
-        .footer-column ul li a {
+        .footer-links a {
             color: #94a3b8;
         }
 
-        .footer-column ul li a:hover {
+        .footer-links a:hover {
             color: var(--white);
             padding-left: 5px;
         }
@@ -787,116 +730,10 @@
             color: #94a3b8;
             font-size: 0.9rem;
         }
-
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .whatsapp-float:hover {
-            background: #128C7E;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                font-size: 28px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
-        }
     </style>
 </head>
 <body>
-     <section class="mobile-back-section">
-
-  <style>
-    /* Hide by default */
-    .mobile-back-section {
-      display: none;
-    }
-
-    /* Show ONLY on mobile */
-    @media (max-width: 768px) {
-      .mobile-back-section {
-        display: block;
-        position: fixed;
-        top: 1.5cm; /* 👈 PUSHED DOWN BY 1cm */
-        left: 15px;
-        z-index: 9999;
-      }
-
-      .mobile-back-btn {
-        background: linear-gradient(
-          135deg,
-          #1e90ff,   /* blue */
-          #ffffff,  /* white */
-          #ffb6c1   /* baby pink */
-        );
-        border: none;
-        padding: 10px 16px;
-        border-radius: 30px;
-        font-size: 14px;
-        font-weight: 600;
-        color: #000;
-        cursor: pointer;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .mobile-back-btn:active {
-        transform: scale(0.95);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-    }
-  </style>
-
-  <button class="mobile-back-btn" onclick="goBack()">
-    ← Back
-  </button>
-
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-
-</section>
-    <!-- Fixed Navigation -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -904,7 +741,11 @@
                 <span>PHILLCODE</span>
             </a>
             
-           
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
@@ -916,7 +757,7 @@
         </div>
     </nav>
 
-    <!-- WhatsApp Float Button -->
+    <!-- WhatsApp Button -->
     <a href="https://wa.me/254790617211" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -925,230 +766,1299 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>The Future of Professional Profiles</h1>
-                <p>Transform your traditional PDF resume into a dynamic, professional web-based CV that stands out in today's competitive job market.</p>
-                <a href="contact.html" class="btn">Create Your Web CV Now</a>
+                <h1>Transform Your CV Into a Powerful Portfolio</h1>
+                <p>Stop sending static PDFs that get lost in the pile. We turn your traditional resume into a dynamic, interactive portfolio website that showcases your skills, tells your story, and gets you noticed by employers and clients.</p>
+                <a href="https://wa.me/254790617211" target="_blank" class="btn">
+                    <i class="fab fa-whatsapp"></i> Get Your Portfolio Now
+                </a>
+                <!-- Button to navigate to the Portfolio Quote Section -->
+<button class="portfolio-quote-btn" data-target="portfolio-cta">
+    <i class="fas fa-file-alt"></i>
+    Get Portfolio Quote
+</button>
+
+<style>
+    /* Portfolio Quote Button Styles */
+    .portfolio-quote-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, #4a6bff 0%, #7c3aed 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(74, 107, 255, 0.25);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .portfolio-quote-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #7c3aed 0%, #4a6bff 100%);
+        transition: all 0.4s ease;
+        z-index: -1;
+    }
+    
+    .portfolio-quote-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(74, 107, 255, 0.35);
+    }
+    
+    .portfolio-quote-btn:hover::before {
+        left: 0;
+    }
+    
+    .portfolio-quote-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 15px rgba(74, 107, 255, 0.3);
+    }
+    
+    .portfolio-quote-btn i {
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .portfolio-quote-btn:hover i {
+        transform: translateX(3px);
+    }
+    
+    /* Ripple Effect */
+    .portfolio-quote-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+    
+    .portfolio-quote-btn:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+    }
+    
+    @keyframes ripple {
+        0% {
+            transform: scale(0, 0);
+            opacity: 0.5;
+        }
+        20% {
+            transform: scale(25, 25);
+            opacity: 0.3;
+        }
+        100% {
+            transform: scale(50, 50);
+            opacity: 0;
+        }
+    }
+    
+    /* Floating Button Variant */
+    .portfolio-quote-btn.floating {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        animation: float 3s ease-in-out infinite;
+        box-shadow: 0 10px 25px rgba(74, 107, 255, 0.4);
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(-3px);
+        }
+        50% {
+            transform: translateY(3px);
+        }
+    }
+    
+    /* Outline Variant */
+    .portfolio-quote-btn.outline {
+        background: transparent;
+        border: 2px solid #4a6bff;
+        color: #4a6bff;
+        box-shadow: none;
+    }
+    
+    .portfolio-quote-btn.outline::before {
+        background: #4a6bff;
+    }
+    
+    .portfolio-quote-btn.outline:hover {
+        color: white;
+    }
+    
+    /* Small Size */
+    .portfolio-quote-btn.small {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+    
+    .portfolio-quote-btn.small i {
+        font-size: 0.9rem;
+    }
+    
+    /* Large Size */
+    .portfolio-quote-btn.large {
+        padding: 18px 36px;
+        font-size: 1.2rem;
+        gap: 12px;
+    }
+    
+    .portfolio-quote-btn.large i {
+        font-size: 1.3rem;
+    }
+    
+    /* Full Width */
+    .portfolio-quote-btn.full-width {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .portfolio-quote-btn {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+        }
+        
+        .portfolio-quote-btn.floating {
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-quote-btn.large {
+            padding: 16px 30px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .portfolio-quote-btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-quote-btn.floating {
+            bottom: 15px;
+            right: 15px;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+        }
+        
+        .portfolio-quote-btn i {
+            font-size: 1rem;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .portfolio-quote-btn {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+        
+        .portfolio-quote-btn span:not(:first-child) {
+            display: none;
+        }
+        
+        .portfolio-quote-btn i {
+            margin-right: 0;
+        }
+    }
+</style>
+
+<script>
+    // Portfolio Quote Button Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to scroll to portfolio section
+        function scrollToPortfolioSection() {
+            const portfolioSection = document.getElementById('portfolio-cta');
+            
+            if (portfolioSection) {
+                // Calculate offset for fixed header (adjust 80px based on your header height)
+                const headerOffset = 80;
+                const elementPosition = portfolioSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                // Smooth scroll with animation
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Optional: Highlight the form with animation
+                setTimeout(() => {
+                    portfolioSection.style.boxShadow = '0 0 0 5px rgba(74, 107, 255, 0.3)';
+                    portfolioSection.style.transition = 'box-shadow 0.3s ease';
+                    
+                    setTimeout(() => {
+                        portfolioSection.style.boxShadow = 'none';
+                    }, 1000);
+                }, 500);
+                
+                // Focus on first form field
+                setTimeout(() => {
+                    const firstInput = portfolioSection.querySelector('input, textarea, select');
+                    if (firstInput) {
+                        firstInput.focus();
+                        firstInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 600);
+            } else {
+                // If section doesn't exist on current page, redirect to services page
+                console.warn('Portfolio section not found. Redirecting to services page...');
+                window.location.href = 'services.html#portfolio-cta';
+            }
+        }
+        
+        // Attach click event to all portfolio quote buttons
+        const portfolioButtons = document.querySelectorAll('.portfolio-quote-btn');
+        
+        portfolioButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Scroll to section
+                scrollToPortfolioSection();
+                
+                // Analytics/Event Tracking (Optional)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'Portfolio Quote',
+                        'event_label': 'Get Quote Button Click'
+                    });
+                }
+            });
+        });
+        
+        // Check if we're already on a page with portfolio section
+        function checkForPortfolioSection() {
+            const portfolioSection = document.getElementById('portfolio-cta');
+            if (!portfolioSection) {
+                // Update button to redirect to services page
+                portfolioButtons.forEach(button => {
+                    button.setAttribute('href', 'services.html#portfolio-cta');
+                    button.removeAttribute('data-target');
+                });
+            }
+        }
+        
+        // Initialize check
+        checkForPortfolioSection();
+        
+        // Optional: Keyboard shortcut (Ctrl + P)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                scrollToPortfolioSection();
+            }
+        });
+        
+        // Floating button functionality (if floating variant exists)
+        const floatingButtons = document.querySelectorAll('.portfolio-quote-btn.floating');
+        floatingButtons.forEach(button => {
+            // Show/hide on scroll
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 300) {
+                    // Scrolling down
+                    button.style.transform = 'translateY(100px)';
+                    button.style.opacity = '0';
+                    button.style.transition = 'all 0.3s ease';
+                } else {
+                    // Scrolling up
+                    button.style.transform = 'translateY(0)';
+                    button.style.opacity = '1';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        });
+    });
+    
+    // Export function for external use
+    window.scrollToPortfolioQuote = function() {
+        const portfolioSection = document.getElementById('portfolio-cta');
+        if (portfolioSection) {
+            const headerOffset = 80;
+            const elementPosition = portfolioSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            return true;
+        }
+        return false;
+    };
+</script>
+
+<!-- Example usage with different variants: -->
+<!-- 
+    Basic Button:
+    <button class="portfolio-quote-btn">
+        <i class="fas fa-file-alt"></i>
+        Get Portfolio Quote
+    </button>
+    
+    Floating Button (fixed position):
+    <button class="portfolio-quote-btn floating">
+        <i class="fas fa-file-alt"></i>
+        Get Quote
+    </button>
+    
+    Outline Variant:
+    <button class="portfolio-quote-btn outline">
+        <i class="fas fa-file-alt"></i>
+        Request Quote
+    </button>
+    
+    Small Size:
+    <button class="portfolio-quote-btn small">
+        <i class="fas fa-file-alt"></i>
+        Quote
+    </button>
+    
+    Large Size:
+    <button class="portfolio-quote-btn large">
+        <i class="fas fa-file-alt"></i>
+        Get Your Portfolio Quote
+    </button>
+    
+    Full Width:
+    <button class="portfolio-quote-btn full-width">
+        <i class="fas fa-file-alt"></i>
+        Get Free Portfolio Quote
+    </button>
+-->
             </div>
         </div>
     </section>
 
-    <!-- Evolution Section -->
-    <section class="section evolution" id="evolution">
+    <!-- Problem Section -->
+    <section class="section problem">
         <div class="container">
-            <h2 class="section-title">The Evolution of CVs</h2>
-            <p class="text-center mb-4">From paper to PDF to interactive web experiences - how professional profiles have transformed</p>
+            <h2 class="section-title">Is Your CV Holding You Back?</h2>
+            <p class="text-center">Traditional resumes have limitations that cost you opportunities</p>
             
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content animate">
-                        <span class="timeline-date">1980s-1990s</span>
-                        <h3>Paper Resumes</h3>
-                        <p>Typewritten or handwritten documents mailed or handed to employers. Limited to one or two pages with basic information.</p>
-                        <ul>
-                            <li><i class="fas fa-times"></i> No interactivity</li>
-                            <li><i class="fas fa-times"></i> Difficult to update</li>
-                            <li><i class="fas fa-times"></i> Single format</li>
-                        </ul>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-eye-slash"></i>
                     </div>
+                    <h3>Limited Visibility</h3>
+                    <p>Your PDF gets buried in a sea of similar-looking documents. No way to stand out or showcase your personality.</p>
                 </div>
                 
-                <div class="timeline-item right">
-                    <div class="timeline-content animate">
-                        <span class="timeline-date">Late 1990s-2010s</span>
-                        <h3>PDF & Digital Resumes</h3>
-                        <p>Electronic documents that could be emailed or uploaded to job boards. More formatting options but still static.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Easier to distribute</li>
-                            <li><i class="fas fa-check"></i> Better formatting</li>
-                            <li><i class="fas fa-times"></i> Still limited interactivity</li>
-                        </ul>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-ban"></i>
                     </div>
+                    <h3>No Interactivity</h3>
+                    <p>Static documents can't include videos, live projects, interactive demos, or dynamic content that truly showcases your skills.</p>
                 </div>
                 
-                <div class="timeline-item left">
-                    <div class="timeline-content animate">
-                        <span class="timeline-date">2010s-Present</span>
-                        <h3>LinkedIn Profiles</h3>
-                        <p>Online professional networks allowed for more dynamic profiles with recommendations and connections.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Network effects</li>
-                            <li><i class="fas fa-check"></i> More visibility</li>
-                            <li><i class="fas fa-times"></i> Limited customization</li>
-                        </ul>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line-down"></i>
                     </div>
+                    <h3>Poor Analytics</h3>
+                    <p>No way to track who's viewing your CV, which sections they're interested in, or how they found you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>Your CV, Reimagined as a Professional Portfolio</h2>
+                    <p>We transform your traditional resume into a stunning, fully responsive portfolio website that tells your professional story in the most compelling way possible.</p>
+                    
+                    <ul class="solution-features">
+                        <li><i class="fas fa-check-circle"></i> <strong>Interactive Timeline:</strong> Visualize your career journey with engaging animations</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Project Showcase:</strong> Display your work with images, videos, and live demos</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Skills Visualization:</strong> Present your expertise with dynamic charts and graphs</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Contact Integration:</strong> Make it easy for employers to reach you instantly</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Mobile Optimized:</strong> Looks perfect on any device, anytime, anywhere</li>
+                    </ul>
+                    
+                    <a href="#pricing" class="btn">See Pricing Plans</a>
                 </div>
                 
-                <div class="timeline-item right">
-                    <div class="timeline-content animate">
-                        <span class="timeline-date">The Future</span>
-                        <h3>Web-Based CVs</h3>
-                        <p>Fully customized, interactive websites that showcase your complete professional identity.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Fully interactive</li>
-                            <li><i class="fas fa-check"></i> Multimedia integration</li>
-                            <li><i class="fas fa-check"></i> Complete customization</li>
-                            <li><i class="fas fa-check"></i> Analytics tracking</li>
-                        </ul>
-                    </div>
+                <div class="solution-preview">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portfolio Preview" class="solution-img">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="section benefits" id="benefits">
+    <section class="section benefits">
         <div class="container">
-            <h2 class="section-title">Why a Web-Based CV Stands Out</h2>
-            <p class="text-center mb-4">Traditional resumes get lost in the pile. A web CV makes you memorable.</p>
+            <h2 class="section-title">Why Choose a Portfolio Over a CV?</h2>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3>Visual Impact</h3>
-                    <p>Create a strong first impression with a professionally designed layout that reflects your personal brand.</p>
+                    <h3>Make a Lasting Impression</h3>
+                    <p>A portfolio creates a memorable first impression that sets you apart from candidates using generic templates.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <i class="fas fa-project-diagram"></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>Showcase Your Work</h3>
-                    <p>Embed projects, portfolios, videos, and code samples directly in your CV for a comprehensive showcase.</p>
+                    <h3>Track Your Success</h3>
+                    <p>See exactly who's viewing your portfolio, from which companies, and what they're interested in.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Performance Tracking</h3>
-                    <p>See who's viewing your CV, which sections they spend time on, and where they come from.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile Friendly</h3>
-                    <p>Looks perfect on any device, unlike PDFs that often break formatting on mobile.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-link"></i>
+                        <i class="fas fa-share-alt"></i>
                     </div>
                     <h3>Easy to Share</h3>
-                    <p>One simple link to share your complete professional profile with anyone, anywhere.</p>
+                    <p>One simple link to share your complete professional story with anyone, anywhere in the world.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-sync-alt"></i>
                     </div>
                     <h3>Instant Updates</h3>
-                    <p>Add new skills, projects or experiences immediately without sending updated files.</p>
+                    <p>Add new skills, projects, or achievements in real-time without resending documents.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Boost Your SEO</h3>
+                    <p>Get found by recruiters searching for your specific skills and expertise online.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Build Your Brand</h3>
+                    <p>Establish yourself as a professional with a cohesive personal brand across all platforms.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section features" id="features">
+    <!-- Process Section -->
+    <section class="section process">
         <div class="container">
-            <h2 class="section-title">Professional Web CV Features</h2>
-            <p class="text-center mb-4">Everything you need to showcase your career in the best light</p>
+            <h2 class="section-title">How We Transform Your CV</h2>
+            <p class="text-center">A simple 4-step process to create your professional portfolio</p>
             
-            <div class="features-container">
-                <div class="feature-tab">
-                    <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                    <div class="feature-content">
-                        <h3>Interactive Timeline</h3>
-                        <p>Visualize your career journey with an interactive timeline that highlights your professional milestones and achievements.</p>
-                        <ul>
-                            <li>Animated career progression</li>
-                            <li>Key achievements spotlight</li>
-                            <li>Education and work history</li>
-                        </ul>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Share Your CV</h3>
+                    <p>Send us your current resume, LinkedIn profile, or any career documents you have.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design Consultation</h3>
+                    <p>We discuss your goals, preferences, and create a custom design that reflects your brand.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development Phase</h3>
+                    <p>Our team builds your interactive portfolio with all the features you need.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Launch & Training</h3>
+                    <p>We launch your portfolio and show you how to update and manage it easily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section class="section showcase">
+        <div class="container">
+            <h2 class="section-title">Portfolio Examples</h2>
+            <p class="text-center">See how we've transformed ordinary CVs into extraordinary portfolios</p>
+            
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="showcase-img" style="background-image: url('https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="showcase-content">
+                        <h3>Software Developer Portfolio</h3>
+                        <p>Interactive portfolio featuring live code demos, GitHub integration, and project case studies.</p>
+                        <div class="showcase-tags">
+                            <span class="tag">Code Demos</span>
+                            <span class="tag">GitHub Integration</span>
+                            <span class="tag">Interactive Resume</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="feature-tab">
-                    <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');"></div>
-                    <div class="feature-content">
-                        <h3>Portfolio Integration</h3>
-                        <p>Showcase your work directly within your CV with image galleries, video demos, and live project links.</p>
-                        <ul>
-                            <li>Project case studies</li>
-                            <li>Code samples (for developers)</li>
-                            <li>Design portfolios</li>
-                            <li>Writing samples</li>
-                        </ul>
+                <div class="showcase-item">
+                    <div class="showcase-img" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="showcase-content">
+                        <h3>Designer Portfolio</h3>
+                        <p>Visual portfolio with project galleries, design process breakdowns, and client testimonials.</p>
+                        <div class="showcase-tags">
+                            <span class="tag">Project Gallery</span>
+                            <span class="tag">Design Process</span>
+                            <span class="tag">Client Testimonials</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="feature-tab">
-                    <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                    <div class="feature-content">
-                        <h3>Contact & Social Links</h3>
-                        <p>Make it easy for recruiters to connect with you through integrated contact forms and social media links.</p>
-                        <ul>
-                            <li>Direct messaging</li>
-                            <li>Social media integration</li>
-                            <li>Downloadable PDF version</li>
-                            <li>vCard download</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="feature-tab">
-                    <div class="feature-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                    <div class="feature-content">
-                        <h3>Skills Visualization</h3>
-                        <p>Present your skills in visually engaging charts and graphs that make your competencies stand out.</p>
-                        <ul>
-                            <li>Interactive skill charts</li>
-                            <li>Progress indicators</li>
-                            <li>Endorsements section</li>
-                            <li>Certification badges</li>
-                        </ul>
+                <div class="showcase-item">
+                    <div class="showcase-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="showcase-content">
+                        <h3>Marketing Professional Portfolio</h3>
+                        <p>Results-driven portfolio featuring campaign metrics, success stories, and strategy breakdowns.</p>
+                        <div class="showcase-tags">
+                            <span class="tag">Campaign Analytics</span>
+                            <span class="tag">Case Studies</span>
+                            <span class="tag">Strategy Showcase</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="section demo" id="demo">
-        <div class="container">
-            <div class="demo-container">
-                <div class="demo-content">
-                    <h2 class="section-title">See It In Action</h2>
-                    <p>Our web-based CV templates are designed to impress while maintaining professionalism. They're fully responsive, meaning they look great on any device from desktop to mobile.</p>
-                    <p>Each template includes:</p>
-                    <ul>
-                        <li>Customizable color schemes</li>
-                        <li>Responsive design for all devices</li>
-                        <li>Integrated contact forms</li>
-                        <li>Social media integration</li>
-                        <li>Downloadable PDF version</li>
-                        <li>Analytics dashboard</li>
-                    </ul>
-                    <a href="contact.html#contact" class="btn">Get Your Web CV</a>
-                </div>
-                <div class="demo-preview">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Web CV Example">
-                </div>
-            </div>
+    <!-- Pricing Section -->
+    <section class="section portfolio-cta" id="portfolio-cta">
+  <style>
+    /* Portfolio CTA Section Styles */
+    .portfolio-cta {
+      background: linear-gradient(135deg, rgba(74, 107, 255, 0.05), rgba(124, 58, 237, 0.05));
+      animation: fadeIn 0.8s ease-out;
+    }
+    
+    .portfolio-cta .section-title {
+      animation: slideDown 0.6s ease-out 0.2s both;
+    }
+    
+    .portfolio-cta .text-center {
+      animation: slideDown 0.6s ease-out 0.4s both;
+    }
+    
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      animation: slideUp 0.7s ease-out 0.6s both;
+      border: 1px solid rgba(74, 107, 255, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 0.95rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 2px solid #e2e8f0;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #4a6bff;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.1);
+    }
+    
+    .budget-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+    
+    .budget-option {
+      padding: 0.8rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+    
+    .budget-option:hover {
+      border-color: #4a6bff;
+      background: #f1f5ff;
+    }
+    
+    .budget-option.selected {
+      border-color: #4a6bff;
+      background: #eef2ff;
+      color: #4a6bff;
+      font-weight: 600;
+    }
+    
+    .budget-option input[type="radio"] {
+      display: none;
+    }
+    
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+    
+    .requirement-option {
+      padding: 0.8rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      font-size: 0.9rem;
+    }
+    
+    .requirement-option:hover {
+      border-color: #4a6bff;
+      background: #f1f5ff;
+    }
+    
+    .requirement-option.selected {
+      border-color: #4a6bff;
+      background: #eef2ff;
+      color: #4a6bff;
+      font-weight: 600;
+    }
+    
+    .requirement-option input[type="checkbox"] {
+      display: none;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #4a6bff, #7c3aed);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(74, 107, 255, 0.2);
+    }
+    
+    .btn-submit:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* Loading State */
+    .btn-submit.loading {
+      position: relative;
+      color: transparent;
+    }
+    
+    .btn-submit.loading::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    /* Success/Error States */
+    .form-message {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      animation: slideDown 0.5s ease-out;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .form-message.success {
+      background: #d1fae5;
+      border: 1px solid #10b981;
+      color: #065f46;
+    }
+    
+    .form-message.error {
+      background: #fee2e2;
+      border: 1px solid #ef4444;
+      color: #991b1b;
+    }
+    
+    .form-message i {
+      font-size: 1.2rem;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 768px) {
+      form {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+      
+      .portfolio-cta .section-title {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+      }
+      
+      .portfolio-cta .text-center {
+        padding: 0 1rem;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea,
+      select {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+      }
+      
+      .btn-submit {
+        padding: 0.9rem;
+        font-size: 1rem;
+      }
+      
+      .budget-selector {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .requirements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      form {
+        padding: 1.5rem;
+        border-radius: 10px;
+      }
+      
+      .portfolio-cta {
+        padding: 60px 0;
+      }
+      
+      .portfolio-cta .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      
+      label {
+        font-size: 0.9rem;
+      }
+      
+      .budget-selector {
+        grid-template-columns: 1fr;
+      }
+      
+      .requirements-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      form {
+        padding: 1.2rem;
+      }
+      
+      .portfolio-cta .section-title {
+        font-size: 1.4rem;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea,
+      select {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+
+  <div class="container">
+    <h2 class="section-title">Get Your Custom Portfolio Quote</h2>
+    <p class="text-center mb-4">Tell us about your portfolio needs. We'll provide a personalized quote within 24 hours!</p>
+    
+    <form id="portfolioForm">
+      <!-- Hidden field for Formspree endpoint -->
+      <input type="hidden" name="_subject" value="New Portfolio Quote Request - Phillcode">
+      <input type="hidden" name="_replyto" value="" id="replyTo">
+      <input type="hidden" name="_format" value="plain">
+      
+      <div class="form-group">
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" name="name" placeholder="Your full name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number (Optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000">
+      </div>
+      
+      <div class="form-group">
+        <label for="profession">Your Profession *</label>
+        <select id="profession" name="profession" required>
+          <option value="">Select your profession</option>
+          <option value="software-developer">Software Developer</option>
+          <option value="web-developer">Web Developer</option>
+          <option value="designer">Designer (UI/UX, Graphic)</option>
+          <option value="marketing">Marketing Professional</option>
+          <option value="writer">Writer/Content Creator</option>
+          <option value="photographer">Photographer/Videographer</option>
+          <option value="consultant">Business Consultant</option>
+          <option value="student">Student</option>
+          <option value="other">Other Profession</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Desired Budget Range *</label>
+        <div class="budget-selector">
+          <label class="budget-option">
+            <input type="radio" name="budget" value="5k-10k" required>
+            Ksh 5K - 10K
+          </label>
+          <label class="budget-option">
+            <input type="radio" name="budget" value="10k-20k">
+            Ksh 10K - 20K
+          </label>
+          <label class="budget-option">
+            <input type="radio" name="budget" value="20k-30k">
+            Ksh 20K - 30K
+          </label>
+          <label class="budget-option">
+            <input type="radio" name="budget" value="30k+">
+            Ksh 30K+
+          </label>
+          <label class="budget-option">
+            <input type="radio" name="budget" value="need-quote">
+            Need Quote
+          </label>
         </div>
-    </section>
+      </div>
+      
+      <div class="form-group">
+        <label>Portfolio Requirements *</label>
+        <div class="requirements-grid">
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="responsive-design">
+            Responsive Design
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="project-gallery">
+            Project Gallery
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="contact-form">
+            Contact Form
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="blog-section">
+            Blog Section
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="ecommerce">
+            E-commerce Features
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="seo">
+            SEO Optimization
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="social-media">
+            Social Media Integration
+          </label>
+          <label class="requirement-option">
+            <input type="checkbox" name="requirements" value="custom-design">
+            Custom Design
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="timeline">Desired Timeline *</label>
+        <select id="timeline" name="timeline" required>
+          <option value="">Select timeline</option>
+          <option value="asap">ASAP (Within 1 week)</option>
+          <option value="2-weeks">Within 2 weeks</option>
+          <option value="1-month">Within 1 month</option>
+          <option value="flexible">Flexible timeline</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="portfolioGoals">Portfolio Goals & Details *</label>
+        <textarea id="portfolioGoals" name="portfolio_goals" placeholder="Please describe:
+- What you want to achieve with your portfolio
+- Your target audience (employers, clients, etc.)
+- Specific features you need
+- Examples of portfolios you like
+- Any other important details..." rows="6" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="additionalInfo">Additional Information (Optional)</label>
+        <textarea id="additionalInfo" name="additional_info" placeholder="Any other details, questions, or specific requirements you'd like to share..." rows="4"></textarea>
+      </div>
+      
+      <button type="submit" class="btn-submit" id="submitBtn">
+        Request My Custom Quote
+      </button>
+    </form>
+    
+    <div style="text-align: center; margin-top: 3rem; padding: 1.5rem; background: #f8fafc; border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <h3 style="margin-bottom: 1rem; color: #4a6bff;">What Happens Next?</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left;">
+        <div style="display: flex; gap: 10px; align-items: flex-start;">
+          <i class="fas fa-clock" style="color: #4a6bff; margin-top: 3px;"></i>
+          <div>
+            <strong>24-Hour Response</strong>
+            <p style="margin-top: 5px; font-size: 0.9rem; color: #64748b;">We'll review your requirements and send a detailed quote within 24 hours.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: flex-start;">
+          <i class="fas fa-comments" style="color: #4a6bff; margin-top: 3px;"></i>
+          <div>
+            <strong>Free Consultation</strong>
+            <p style="margin-top: 5px; font-size: 0.9rem; color: #64748b;">We'll schedule a call to discuss your portfolio vision and strategy.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: flex-start;">
+          <i class="fas fa-lightbulb" style="color: #4a6bff; margin-top: 3px;"></i>
+          <div>
+            <strong>Custom Proposal</strong>
+            <p style="margin-top: 5px; font-size: 0.9rem; color: #64748b;">Receive a tailored proposal with timeline, features, and exact pricing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('portfolioForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const emailInput = document.getElementById('email');
+      const replyToField = document.getElementById('replyTo');
+      
+      // Budget option selection
+      const budgetOptions = document.querySelectorAll('.budget-option');
+      budgetOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          budgetOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+      });
+      
+      // Requirements option selection
+      const requirementOptions = document.querySelectorAll('.requirement-option');
+      requirementOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          this.classList.toggle('selected');
+          const checkbox = this.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
+        });
+      });
+      
+      // Email field sync with reply-to
+      emailInput.addEventListener('input', function() {
+        replyToField.value = this.value;
+      });
+      
+      // Form submission
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validate at least one requirement selected
+        const requirementsChecked = document.querySelectorAll('input[name="requirements"]:checked');
+        if (requirementsChecked.length === 0) {
+          showMessage('Please select at least one portfolio requirement.', 'error');
+          return;
+        }
+        
+        // Set loading state
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Sending Request...';
+        
+        try {
+          // Format requirements as comma-separated string
+          const requirements = Array.from(requirementsChecked).map(cb => cb.value).join(', ');
+          
+          // Create FormData object
+          const formData = new FormData(form);
+          
+          // Add formatted requirements to form data
+          formData.append('formatted_requirements', requirements);
+          
+          // Send to Formspree
+          const response = await fetch('https://formspree.io/f/xnjjnazo', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          // Remove any existing messages
+          const existingMessage = document.querySelector('.form-message');
+          if (existingMessage) {
+            existingMessage.remove();
+          }
+          
+          if (response.ok) {
+            // Success
+            showMessage('✅ Thank you! Your portfolio request has been sent successfully. We will review your requirements and send you a custom quote within 24 hours.', 'success');
+            
+            // Reset form after success
+            setTimeout(() => {
+              form.reset();
+              budgetOptions.forEach(opt => opt.classList.remove('selected'));
+              requirementOptions.forEach(opt => {
+                opt.classList.remove('selected');
+                opt.querySelector('input[type="checkbox"]').checked = false;
+              });
+              submitBtn.disabled = false;
+              submitBtn.classList.remove('loading');
+              submitBtn.textContent = 'Request My Custom Quote';
+            }, 3000);
+            
+          } else {
+            // Formspree error
+            const errorData = await response.json();
+            showMessage(`❌ Submission failed: ${errorData.error || 'Please try again or contact us directly via WhatsApp.'}`, 'error');
+            
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Request My Custom Quote';
+          }
+          
+        } catch (error) {
+          // Network error
+          console.error('Submission error:', error);
+          showMessage('❌ Network error. Please check your connection and try again, or contact us via WhatsApp.', 'error');
+          
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('loading');
+          submitBtn.textContent = 'Request My Custom Quote';
+        }
+      });
+      
+      // Show message function
+      function showMessage(message, type) {
+        // Remove any existing messages
+        const existingMessage = document.querySelector('.form-message');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `form-message ${type}`;
+        
+        messageDiv.innerHTML = `
+          <div>${message}</div>
+        `;
+        
+        form.insertBefore(messageDiv, form.firstChild);
+        
+        // Auto-remove success messages after 10 seconds
+        if (type === 'success') {
+          setTimeout(() => {
+            if (messageDiv.parentNode) {
+              messageDiv.remove();
+            }
+          }, 10000);
+        }
+      }
+      
+      // Input validation styling
+      form.addEventListener('input', function(e) {
+        const input = e.target;
+        if (input.checkValidity()) {
+          input.style.borderColor = '#10b981';
+        } else {
+          input.style.borderColor = '#e2e8f0';
+        }
+      });
+      
+      // Add direct WhatsApp button
+      const whatsappDiv = document.createElement('div');
+      whatsappDiv.style.textAlign = 'center';
+      whatsappDiv.style.marginTop = '2rem';
+      whatsappDiv.innerHTML = `
+        <p style="margin-bottom: 1rem; color: #64748b; font-size: 0.95rem;">Prefer instant response?</p>
+        <a href="https://wa.me/254790617211?text=Hi%20Phillcode!%20I%20want%20to%20discuss%20creating%20a%20portfolio%20website.%20Can%20you%20help%20me%20with%20a%20quote?" 
+           target="_blank" 
+           style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+          <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+          Chat Directly on WhatsApp
+        </a>
+      `;
+      
+      form.parentNode.insertBefore(whatsappDiv, form.nextSibling);
+      
+      // Add hover effect to WhatsApp button
+      const whatsappLink = whatsappDiv.querySelector('a');
+      whatsappLink.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 10px 20px rgba(37, 211, 102, 0.2)';
+      });
+      
+      whatsappLink.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = 'none';
+      });
+    });
+  </script>
+</section>
 
     <!-- CTA Section -->
-    <section class="section cta" id="cta">
+    <section class="cta">
         <div class="container">
-            <h2 class="section-title">Ready to Transform Your Resume?</h2>
-            <p>Stand out from the crowd with a professional web-based CV that showcases your full potential.</p>
-            <a href="contact.html" class="btn btn-outline">Get Started Now</a>
+            <h2>Ready to Transform Your Career?</h2>
+            <p>Don't let your CV hold you back. Invest in a professional portfolio that showcases your true potential and opens doors to better opportunities.</p>
+            <a href="https://wa.me/254790617211" target="_blank" class="btn">
+                <i class="fab fa-whatsapp"></i> Start Your Portfolio Today
+            </a>
         </div>
     </section>
 
@@ -1157,130 +2067,111 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>CVWeb</h3>
-                    <p>Transforming traditional resumes into powerful web experiences that get you noticed.</p>
+                    <h3>Phillcode</h3>
+                    <p>Transforming careers through professional portfolio development. We turn CVs into compelling digital stories.</p>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#evolution">Evolution</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#demo">Demo</a></li>
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Digital Marketing</a></li>
+                        <li><a href="#">Portfolio Creation</a></li>
+                        <li><a href="services.html">Social Media Integration</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Templates</h3>
-                    <ul>
-                        <li><a href="https://www.wix.com/website-template/view/html/1887?originUrl=https%3A%2F%2Fwww.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fportfolio-cv%2F3&tpClick=view_button&esi=c222903a-5a34-4a65-91d9-84c2b372a6e7">Professional</a></li>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="portfolio.html">Our Work</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contact</h3>
-                    <ul>
+                    <ul class="footer-links">
                         <li><a href="mailto:philemonmutisya@gmail.com">philemonmutisya@gmail.com</a></li>
-                        <li><a href="tel:+254790617211">+254790617211</a></li>
-                        <li><a href="contact.html">Support Center</a></li>
+                        <li><a href="tel:+254790617211">+254 790 617 211</a></li>
+                        <li><a href="https://wa.me/254790617211" target="_blank">WhatsApp Chat</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2026 Phillcode. All Rights Reserved.</p>
+                <p>&copy; 2024 Phillcode. All Rights Reserved. | Transforming CVs into Portfolios</p>
             </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            });
-            
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            // Navbar scroll effect
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-            
-            // Animation on scroll
-            const animateElements = () => {
-                const elements = document.querySelectorAll('.timeline-item, .benefit-card, .feature-tab');
-                const windowHeight = window.innerHeight;
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const animationPoint = windowHeight - 100;
-                    
-                    if (elementPosition < animationPoint) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-
-            // Initialize animations
-            window.addEventListener('scroll', animateElements);
-            window.addEventListener('load', animateElements);
-
-            // Add animation class to hero elements
-            const heroTitle = document.querySelector('.hero h1');
-            const heroText = document.querySelector('.hero p');
-            const heroButton = document.querySelector('.hero .btn');
-            
-            if (heroTitle) heroTitle.classList.add('animate');
-            if (heroText) heroText.classList.add('animate');
-            if (heroButton) heroButton.classList.add('animate');
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    // Don't prevent default for links to other pages
-                    if (href.includes('.html')) return;
-                    
-                    e.preventDefault();
-                    
-                    const targetId = href;
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Don't prevent default for links to other pages
+                if (href.includes('.html')) return;
+                
+                e.preventDefault();
+                
+                const targetId = href;
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.benefit-card, .process-step, .showcase-item, .pricing-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        document.querySelectorAll('.benefit-card, .process-step, .showcase-item, .pricing-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
