@@ -392,7 +392,7 @@
             margin-bottom: 20px;
         }
 
-        /* UPDATED TEAM SECTION WITH PERFECT IMAGE FITTING */
+        /* ===== FIXED TEAM SECTION - IMAGES NOW DISPLAY PERFECTLY AT ORIGINAL SIZE ===== */
         .team {
             padding: 100px 0;
         }
@@ -421,25 +421,36 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
+        /* FIXED: Image container now properly displays original image sizes */
         .member-img-container {
             width: 100%;
-            height: 280px;
-            overflow: hidden;
-            position: relative;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
+        /* FIXED: Images now display at their natural dimensions while fitting inside container */
         .member-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top; /* Focus on face area */
-            transition: transform 0.5s ease;
+            height: auto;
+            object-fit: contain;
             display: block;
+            transition: transform 0.5s ease;
+            background-color: #f8fafc;
+        }
+
+        /* Alternative: For images that need cover style, we use this but maintain aspect ratio */
+        .member-img.cover-fit {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
         }
 
         .team-member:hover .member-img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
         .member-info {
@@ -487,34 +498,12 @@
             justify-content: center;
             color: var(--primary);
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-link:hover {
             background: var(--primary);
             color: white;
-        }
-
-        /* Improved Fallback for broken images */
-        .member-img-container::before {
-            content: attr(data-initials);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            font-weight: 700;
-            color: rgba(37, 99, 235, 0.2);
-            font-family: 'Poppins', sans-serif;
-            z-index: 0;
-            display: none; /* Only show if image fails */
-        }
-
-        /* Only show initials when image is broken */
-        .member-img-container img:not([src]), 
-        .member-img-container img[src=""],
-        .member-img-container img.error + ::before {
-            content: attr(data-initials);
-            display: block;
         }
 
         /* Timeline */
@@ -823,7 +812,7 @@
             }
             
             .member-img-container {
-                height: 250px;
+                min-height: auto;
             }
             
             .member-info {
@@ -862,10 +851,6 @@
                 max-width: 350px;
                 margin-left: auto;
                 margin-right: auto;
-            }
-            
-            .member-img-container {
-                height: 300px;
             }
             
             .about-img {
@@ -1009,7 +994,7 @@
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team Section - FIXED: Images now display properly at their original sizes -->
     <section class="team">
         <div class="container">
             <h2 class="section-title text-center animate">Meet Our Team</h2>
@@ -1018,10 +1003,10 @@
             </p>
             
             <div class="team-grid">
-                <!-- Philemon Mutisya -->
+                <!-- Philemon Mutisya - Fixed image display -->
                 <div class="team-member animate delay-2">
-                    <div class="member-img-container" data-initials="PM">
-                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1774439579/philemon_mutisya_founder_of_Philcode_djefnw.png" alt="Philemon Mutisya" class="member-img" onerror="this.onerror=null; this.style.display='none'; this.parentElement.setAttribute('data-initials', 'PM')">
+                    <div class="member-img-container">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1774439579/philemon_mutisya_founder_of_Philcode_djefnw.png" alt="Philemon Mutisya" class="member-img" loading="eager">
                     </div>
                     <div class="member-info">
                         <h3>Philemon Mutisya</h3>
@@ -1035,10 +1020,10 @@
                     </div>
                 </div>
                 
-                <!-- Lloyd Ogutu -->
+                <!-- Lloyd Ogutu - Fixed image display -->
                 <div class="team-member animate delay-3">
-                    <div class="member-img-container" data-initials="LO">
-                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1768393798/WhatsApp_Image_2026-01-14_at_15.29.15_d01pro.jpg" alt="Lloyd Ogutu" class="member-img" onerror="this.onerror=null; this.style.display='none'; this.parentElement.setAttribute('data-initials', 'LO')">
+                    <div class="member-img-container">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1768393798/WhatsApp_Image_2026-01-14_at_15.29.15_d01pro.jpg" alt="Lloyd Ogutu" class="member-img" loading="eager">
                     </div>
                     <div class="member-info">
                         <h3>Lloyd Ogutu</h3>
@@ -1052,17 +1037,15 @@
                     </div>
                 </div>
 
-                
-
-                <!-- Ian Shannon -->
+                <!-- Grace Wairimu Maina - Fixed image display -->
                 <div class="team-member animate delay-5">
-                    <div class="member-img-container" data-initials="IS">
-                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1774439328/grace_philcode_project_manager_zp1yyd.jpg" alt="Ian Shannon" class="member-img" onerror="this.onerror=null; this.style.display='none'; this.parentElement.setAttribute('data-initials', 'IS')">
+                    <div class="member-img-container">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1774439328/grace_philcode_project_manager_zp1yyd.jpg" alt="Grace Wairimu Maina" class="member-img" loading="eager">
                     </div>
                     <div class="member-info">
                         <h3>Grace Wairimu Maina</h3>
                         <p class="position">Project Manager, Client Relations & client acquisition</p>
-                        <p>Ian ensures every project moves from concept to completion with efficiency. He manages timelines, leads execution, and builds strong client relationships through clear communication and consistency.</p>
+                        <p>Grace ensures every project moves from concept to completion with efficiency. She manages timelines, leads execution, and builds strong client relationships through clear communication and consistency.</p>
                         <div class="social-links">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -1276,21 +1259,19 @@
             });
         });
 
-        // Improved image error handling
+        // Fix images to display properly - ensure images load with correct sizing
         document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.member-img');
-            images.forEach(img => {
+            const memberImages = document.querySelectorAll('.member-img');
+            memberImages.forEach(img => {
+                // Add load event to ensure images display properly
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                // If image fails to load, it will still show alt text but maintain container
                 img.addEventListener('error', function() {
-                    this.style.display = 'none';
-                    const container = this.parentElement;
-                    container.style.display = 'flex';
-                    container.style.alignItems = 'center';
-                    container.style.justifyContent = 'center';
-                    container.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-                    const initials = container.getAttribute('data-initials');
-                    if (initials) {
-                        container.innerHTML = `<span style="font-size: 3rem; font-weight: 700; color: rgba(37, 99, 235, 0.5); font-family: 'Poppins', sans-serif;">${initials}</span>`;
-                    }
+                    console.log('Image failed to load, but container maintains structure');
+                    this.style.backgroundColor = '#e2e8f0';
                 });
             });
         });
